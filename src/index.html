@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
     <h1>Studio Ghibli</h1>
-    <p>Sí se puede</p>
-    <h2>probemos con mas archivos</h2>
-    <script src="main.js" type="module"></script>
-  </body>
+  </header>
+
+  <main>
+    <h2>Películas</h2>
+  </main>
+
+  <div id="root"> 
+    <ul>
+      <li>Peli 1</li>
+        <dl itemscope itemtype="Studio Ghibli Inc.">
+          <dt>Title:</dt><dd itemprop="title">Castle in the Sky</dd>
+          <dt>Number:</dt><dd itemprop="num">025</dd>
+          <dt>Rarity:</dt><dd itemprop="pokemon-rarity">normal</dd>
+        </dl>        
+      <li>Peli 2</li>
+    </ul>
+  </div>
+
+  <footer> 
+    <label for="clean-buton">
+      <button>Limpiar filtros</button>
+    </label>
+
+    Desarrollado por Sara Ramírez y Sylvia Gómez
+  </footer>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>
