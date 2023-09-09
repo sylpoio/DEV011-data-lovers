@@ -1,6 +1,7 @@
 // estas funciones son de ejemplo
 
 export const renderItems = (data) => {
+
   const films = data.films;
   let titlesHTML= "";
 
@@ -12,6 +13,9 @@ export const renderItems = (data) => {
     <span>${movie.description}</span>
     </ul>`
   });
+
+};
+
 
  return titlesHTML
   
