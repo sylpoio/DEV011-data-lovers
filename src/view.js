@@ -1,11 +1,22 @@
 // estas funciones son de ejemplo
 
 export const renderItems = (data) => {
-  const listFilms = data.films;
-//identificacmos los datos de las peliculas
-const primera = listFilms[0];
-const datosPrimeraTitulo = '<li>' + primera.title + '</li>';
-const datosPrimeraDes = '<li>' + primera.description + '</li>';
+
+  const films = data.films;
+  let titlesHTML= "";
+
+  //identificacmos los datos de las peliculas
+  films.forEach(movie => {
+    titlesHTML+=`<ul>
+    <li>${movie.title}</li>
+    <img src=${movie.poster}/>
+    <span>${movie.description}</span>
+    </ul>`
+  });
 
 };
 
+
+ return titlesHTML
+  
+};
