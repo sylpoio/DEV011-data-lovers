@@ -8,7 +8,8 @@ export const renderItems = (data) => {
   films.forEach((movie) => {
     titlesHTML += `
     <li>
-    <img src=${movie.poster}/>
+    <img src=${movie.poster} alt="${movie.title} Poster"/>
+    <h3>${movie.title}</h3>
     </li>`;
   });
 
