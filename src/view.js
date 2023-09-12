@@ -2,14 +2,14 @@
 
 export const renderItems = (data) => {
   const films = data.films;
-  let titlesHTML = "";
+  let titlesHTML  = "";
 
   //identificacmos los datos de las peliculas
   films.forEach((movie) => {
     titlesHTML += `
     <li>
     <img src=${movie.poster} alt="${movie.title} Poster"/>
-    <p>${movie.title}</p>
+    <h3>${movie.title}</h3>
     </li>`;
   });
 
