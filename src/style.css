@@ -50,8 +50,7 @@ h3 {
   margin: 5%;
   padding: 5%;
   text-align: center;
-  display:contents;
-  
+  text-size-adjust: 1.5em;  
 }
 
 body {
@@ -77,4 +76,24 @@ footer {
   padding: 10px;
 }
 
- 
+  /* Media query para móviles) */
+@media screen and (max-width: 768px) {
+  h3 {
+    font-size: 1.2em; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+  }
+}
+
+/* Media query para tabletas) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  h3 {
+    font-size: 1.4em; /* Tamaño de fuente mediano para pantallas medianas */
+  }
+}
+
+/* Media query para computadoras de escritorio) */
+@media screen and (min-width: 1025px) {
+  h3 {
+    font-size: 1.8em; /* Tamaño de fuente más grande para pantallas grandes */
+  }
+}
+
