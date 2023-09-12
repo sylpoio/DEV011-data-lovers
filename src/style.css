@@ -47,7 +47,7 @@ h3 {
   color: aliceblue;
   margin: 0;
   text-align: center;
-  font-size: 100%;
+  font-size: 1.5rem;
 }
 
 body {
@@ -73,6 +73,24 @@ footer {
   padding: 10px;
 }
 
-@media screen {
-  
+  /* Media query para móviles) */
+@media screen and (max-width: 768px) {
+  h3 {
+    font-size: 1.2rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+  }
 }
+
+/* Media query para tabletas) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  h3 {
+    font-size: 1.4rem; /* Tamaño de fuente mediano para pantallas medianas */
+  }
+}
+
+/* Media query para computadoras de escritorio) */
+@media screen and (min-width: 1025px) {
+  h3 {
+    font-size: 1.8rem; /* Tamaño de fuente más grande para pantallas grandes */
+  }
+}
+
