@@ -1,4 +1,4 @@
-//import { example } from './dataFunctions.js';
+import { example } from './dataFunctions.js';
 import { renderItems } from './view.js';
 
 // import data from './data/lol/lol.js';
@@ -8,7 +8,7 @@ const prueba = document.getElementById('root');
 prueba.innerHTML = renderItems(data);
 // import data from './data/rickandmorty/rickandmorty.js';
 
-//console.log(example, renderItems, data);
+console.log(example, renderItems, data);
 
 //console.log(data.films);
 
