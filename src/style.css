@@ -50,7 +50,7 @@ h3 {
   margin: 5%;
   padding: 5%;
   text-align: center;
-  text-size-adjust: 1.5em;  
+  font-size: 1.5em;  
 }
 
 body {
@@ -79,7 +79,7 @@ footer {
   /* Media query para móviles) */
 @media screen and (max-width: 768px) {
   h3 {
-    font-size: 1.2em; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+    font-size: 1em; /* Tamaño de fuente más pequeño para pantallas pequeñas */
   }
 }
 
