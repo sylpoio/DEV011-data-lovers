@@ -44,13 +44,18 @@ li img {
   height: 100%;
   object-fit: contain;
 }
+/* para empezar a dar movimiento a las tarjetas */
+li:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+  }
 
 h3 {
   color: aliceblue;
   margin: 5%;
   padding: 5%;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 body {
@@ -80,7 +85,7 @@ footer {
   /* Media query para móviles) */
 @media screen and (max-width: 768px) {
   h3 {
-    font-size: 1rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+    font-size: 0.2rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
   }
 }
 
@@ -94,7 +99,7 @@ footer {
 /* Media query para computadoras de escritorio) */
 @media screen and (min-width: 1025px) {
   h3 {
-    font-size: 1.8rem; /* Tamaño de fuente más grande para pantallas grandes */
+    font-size: 2.5rem; /* Tamaño de fuente más grande para pantallas grandes */
   }
 }
 
