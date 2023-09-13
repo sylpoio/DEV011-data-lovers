@@ -51,6 +51,7 @@ h3 {
   padding: 5%;
   text-align: center;
   font-size: 1.5em;
+
 }
 
 body {
@@ -79,21 +80,21 @@ footer {
   /* Media query para móviles) */
 @media screen and (max-width: 768px) {
   h3 {
-    font-size: 1em; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+    font-size: 1rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
   }
 }
 
 /* Media query para tabletas) */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   h3 {
-    font-size: 1.4em; /* Tamaño de fuente mediano para pantallas medianas */
+    font-size: 1.4rem; /* Tamaño de fuente mediano para pantallas medianas */
   }
 }
 
 /* Media query para computadoras de escritorio) */
 @media screen and (min-width: 1025px) {
   h3 {
-    font-size: 1.8em; /* Tamaño de fuente más grande para pantallas grandes */
+    font-size: 1.8rem; /* Tamaño de fuente más grande para pantallas grandes */
   }
 }
 

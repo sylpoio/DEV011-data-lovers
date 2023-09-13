@@ -9,7 +9,7 @@ export const renderItems = (data) => {
     titlesHTML += `
     <li>
     <img src=${movie.poster} alt="${movie.title} Poster"/>
-    <p>${movie.title}</p>
+    <h3>${movie.title}</h3>
     </li>`;
   });
 
