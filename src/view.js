@@ -10,7 +10,7 @@ export const renderItems = (data) => {
     <li class="card">
       <div class="front">
         <img src=${movie.poster} alt="${movie.title} Poster"/>
-        <h3>${movie.title}</h3>
+        
       </div>
       <div class="back">
         <div class="title"></div>

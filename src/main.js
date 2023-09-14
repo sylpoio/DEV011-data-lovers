@@ -7,4 +7,4 @@ import data from './data/ghibli/ghibli.js';
 const prueba = document.getElementById('container');
 prueba.innerHTML = renderItems(data);
 // import data from './data/rickandmorty/rickandmorty.js';
-console.log(example, renderItems, data);
+//console.log(example, renderItems, data);
