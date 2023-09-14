@@ -45,7 +45,6 @@ h1 {
   font-size: .2em;
   display: block;
 }
-
 .card img{
   width: 100%;
   height: 70%;
@@ -59,14 +58,26 @@ h3{
   outline: solid;
 background-color: rgb(0, 0, 128);
 }
-/* para empezar a dar movimiento a las tarjetas */
-
-/*h3 {
-  color: aliceblue;
+.imgSmall{
   position: absolute;
-
-}*/
-
+  height: 59%;
+  width: 70%;
+  margin-top: -112%;
+  left: 15%;
+}
+.title{
+  position: absolute;
+  margin-top: 8%;
+  left: 16%;
+  font-size: medium;
+}
+.description{
+  position: absolute;
+  margin-top: -36%;
+  font-size: x-small;
+  height: 130px;
+  /*background-color: rgb(41, 128, 0);*/
+}
 body {
   background-image: url("images/background.png");
   background-size: cover;
