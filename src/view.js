@@ -7,6 +7,7 @@ export const renderItems = (data) => {
   //identificacmos los datos de las peliculas
   films.forEach((movie) => {
     titlesHTML += `
+
     <li class="card">
       <div class="front">
         <img src=${movie.poster} alt="${movie.title} Poster"/>
@@ -25,6 +26,7 @@ export const renderItems = (data) => {
         </div>
       </div>
     </li> `;
+
   });
 
   return titlesHTML;
