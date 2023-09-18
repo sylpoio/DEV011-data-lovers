@@ -1,14 +1,25 @@
 import { example } from './dataFunctions.js';
-import { renderItems } from './view.js';
+import { renderItems, renderItems2 } from './view.js';
 
 // import data from './data/lol/lol.js';
 import data from './data/ghibli/ghibli.js';
 
 
-const prueba = document.getElementById('container');
-prueba.innerHTML = renderItems(data);
-// import data from './data/rickandmorty/rickandmorty.js';
-console.log(example, renderItems, data);
+const indexHTML = document.getElementById('container');
+const infoHTML = document.getElementById('containerP');
 
-const parteFront = document.getElementsByClassName('front');
-const parteBack = document.getElementsByClassName('back');
+const currentPageURL = window.location.href;
+
+console.log(currentPageURL);
+ if (currentPageURL.includes('info')) {
+     infoHTML.innerHTML = renderItems2(); // Llama a la función para la página de información
+ } else {
+     indexHTML.innerHTML = renderItems(data);  // Llama a la función para la página principal (o cualquier otra página)
+ }
+
+
+
+
+
+// import data from './data/rickandmorty/rickandmorty.js';
+//console.log(renderItems2);

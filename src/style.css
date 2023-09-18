@@ -1,3 +1,46 @@
+body {
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-image: url("images/header3.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 1px;
+  height: 30vh;
+  width: 100%;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  color: aliceblue;
+  font-size: 5vw;
+  padding: 2.5%;
+  margin: 10px;
+}
+
+footer {
+  background-color: navy;
+  color: aquamarine;
+  text-align: right;
+  padding: 10px;
+  height: 3vh;
+}
+
+.botones{
+  background-color: rgb(109, 128, 0);
+  height: 15vh;
+  width: 50rem;
+  margin-top: -1.2rem;
+  position: relative;
+ left: 10%;
+}
+/*+++++++++++++++++++++++++++++++++ estilo para las tarejtas front +++++++++++++++++++++++++ */
 #root {
   width: 100%;
   padding: 0;
@@ -8,39 +51,26 @@
   justify-content: space-between;
   align-items: baseline;
   align-content: stretch;
-  gap: 10px;
+  gap: 20px;
   padding: 50px;
 }
-h1 {
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: left;
-  color: aliceblue;
-  font-size: 90px;
-  margin: 10px;
-}
-
+/*++++++++++++++++++++ tarejtas +++++++++++++++ */
 .card {
-  flex-basis: calc(25% - 100px);
+  /*flex-basis: calc(20% - 20px);*/
   list-style-type: none;
   position: relative;
-  /*width: 20rem;*/
-  height: 35rem;
-  display: flex;
+  width: 15vw;
+  height: 40vh;
   justify-content: space-around;
   text-align: center;
-  /*flex-flow: row wrap;
-  align-content: space-around;
-  align-self: baseline; 
-  background-color: rgb(0, 0, 128);*/
+  background-color: rgb(0, 0, 128);
 }
 .front,
-.back {
+.overlay {
   width: 100%;
-  height: 80%;
+  height: 100%;
   object-fit: contain;
   position: absolute;
-  margin-top: 0;
-  padding: 5%;
   text-align: center;
   color: aliceblue;
   font-size: 0.2em;
@@ -48,21 +78,36 @@ h1 {
   /*transform: translate(-50%, -50%);
   background-color: rgb(128, 0, 0);*/
 }
+/*
 .back{
   visibility: hidden;
-}
-.primer, .segunda {
+}*/
+/*++++++++++++++++++++ imagenes principales de las tarejtas +++++++++++++++ */
+img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-h3 {
-  position: relative;
-  top: -12%;
-  height: 130px;
-  border-top: 20px;
-  outline: solid;
-  background-color: rgb(0, 0, 128);
+/*++++++++++++++++++++ overlay +++++++++++++++ */
+.overlay {
+  background: rgba(56, 59, 226, 0.521); /* Fondo semitransparente para el texto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*opacity: 0;  Inicialmente oculto */
+  transition: opacity 0.3s; /* Transición suave para mostrar/ocultar */
+}
+
+.back p{
+  font-size: 1.5rem;
+  text-align: left;
+  padding: 5%;
+  margin-top: -14px;
+  margin-bottom: -14px;
+}
+.back h2{
+  font-size: 2rem;
 }
 /*+++++++++++++++++++++++++++ estilos segundas tarejtas ++++++++++++++++++++ */
 .title {
@@ -79,6 +124,7 @@ h3 {
   margin-top: 2.5rem;
 }
 
+/*
 .description{
   position: relative;
   margin-top: .6rem;
@@ -86,30 +132,9 @@ h3 {
   font-size: small;
   height: 5rem;
   text-align: left;
-}
+}*/
 
-body {
-  background-image: url("images/background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 0;
-  margin: 0;
-}
 
-header {
-  background-image: url("images/header3.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 50px;
-  height: 500px;
-}
-
-footer {
-  background-color: navy;
-  color: aquamarine;
-  text-align: right;
-  padding: 10px;
-}
 
 /* Media query para móviles) */
 @media screen and (max-width: 768px) {
