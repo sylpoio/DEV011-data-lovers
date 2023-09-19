@@ -32,14 +32,6 @@ footer {
   height: 3vh;
 }
 
-.botones{
-  background-color: rgb(109, 128, 0);
-  height: 15vh;
-  width: 50rem;
-  margin-top: -1.2rem;
-  position: relative;
- left: 10%;
-}
 /*+++++++++++++++++++++++++++++++++ estilo para las tarejtas front +++++++++++++++++++++++++ */
 #root {
   width: 100%;
@@ -100,31 +92,32 @@ img {
 }
 
 .back p{
-  font-size: 1.5rem;
+  font-size: 1vw;
   text-align: left;
   padding: 5%;
   margin-top: -14px;
   margin-bottom: -14px;
 }
 .back h2{
-  font-size: 2rem;
+  font-size: 2vw;
 }
 /*+++++++++++++++++++++++++++ estilos segundas tarejtas ++++++++++++++++++++ */
-.title {
+.name {
   position: relative;
-  margin-top: -27rem;
+  margin-top: -11.1vw;
   left: auto;
-  font-size: medium;
+  font-size: 1.3vw;
 }
 
 .imgSmall {
   position: relative;
-  height: 14.6rem;
-  width: 14.8rem;
-  margin-top: 2.5rem;
+  object-fit: contain;
+  height: 12vw;
+  width: 7.3vw;
+  top: 2.6vw;
+  left: 4vw;
 }
 
-/*
 .description{
   position: relative;
   margin-top: .6rem;
@@ -132,7 +125,7 @@ img {
   font-size: small;
   height: 5rem;
   text-align: left;
-}*/
+}
 
 
 

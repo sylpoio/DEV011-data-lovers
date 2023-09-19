@@ -15,8 +15,8 @@ export const renderItems = (data) => {
         <img itemprop="poster" src=${movie.poster} alt="${movie.title} Poster"/>
       </div>
       <div class="overlay" >  
-          <div class="back" >
-            <h2 itemprop="titleEIDR">${movie.title}</h2>
+          <div class="back">
+            <h2 itemprop="title">${movie.title}</h2>
             <p itemprop="director">Director: ${movie.director}</p> 
             <p itemprop="producer">Producer: ${movie.producer}</p>  
             <p itemprop="release_date">Release date: ${movie.release_date}</p> 
@@ -34,21 +34,21 @@ export const renderItems = (data) => {
 import data2 from './data/ghibli/ghibli.js';
 window.addEventListener('DOMContentLoaded', ()=>{
 //console.log(data2.films);
-  const buttons = document.querySelectorAll('.info');
+  const masInfo = document.querySelectorAll('.info');
   //console.log(buttons);
-  let arrPeople = []
-  buttons.forEach(button =>{
-    button.addEventListener('click', (e)=>{
-      console.log("desde aqui", e.target.id);
+  let arrInfo = []
+  masInfo.forEach(eventClick =>{
+    eventClick.addEventListener('click', (e)=>{
+     // console.log("desde aqui", e.target.id);
       const findMovie = data2.films.filter(movie => {
         if (movie.id === e.target.id) {
-          console.log(movie.people);
-          arrPeople = movie.people
+         // console.log(movie.people);
+          arrInfo = movie
         }
       })
-      console.log(arrPeople);
-      localStorage.setItem("people", JSON.stringify(arrPeople));
-     window.location.href = "info.html";
+      //console.log(arrInfo);
+      localStorage.setItem("movieInfoLocalStorage", JSON.stringify(arrInfo));
+    window.location.href = "info.html";
     })
   })
 
@@ -56,15 +56,32 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
 
 export const renderItems2 = () => {
-  const personas = JSON.parse(localStorage.getItem("people"));
+  const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
+  //console.log(info);
   //identificacmos los datos de las peliculas
-  let tHTML="";
-  personas.forEach((movie) => {
-    tHTML += `
-    <li class="card">
-        <p>${movie.name}</p>
-    </li> `;
-  });
-console.log(tHTML);
-  return tHTML;
+   let peopleHTML="";
+    const arrPeople = info.people;
+   //console.log(arrPeople);
+   arrPeople.forEach((people) => {
+     peopleHTML += `
+     <li class="card">
+       <div class="front"><img src="images/tarjeta2.jpg" alt="informacion"/></div>
+       <div class="imgSmall"><img src=${people.img} alt="${people.name} Poster"/></div>
+       <div class="name">${people.name}</div>
+       <table border=0 class="description">
+         <tr>
+         <td width="180px">Gender: ${people.gender}</td>
+         </tr>
+         <tr>
+         <td>Age: ${people.age}</td>
+         </tr>
+         <tr>
+         <td>Eye color: ${people.eye_color}</td>
+         </tr>
+         <tr><td>Hair color: ${people.hair_color}</td></tr>
+       </table>
+     </li> `;
+   });
+ //console.log(tHTML);
+   return peopleHTML;
 };
