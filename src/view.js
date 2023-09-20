@@ -85,7 +85,7 @@ export const renderItems2 = () => {
          <td>Eye color: ${people.eye_color}</td>
          </tr>
          <tr><td>Hair color: ${people.hair_color}</td></tr>
-       </table>
+        </table>
      </li> `;
   });
   //console.log(tHTML);

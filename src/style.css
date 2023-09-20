@@ -72,9 +72,8 @@ footer {
   /*transform: translate(-50%, -50%);
   background-color: rgb(128, 0, 0);*/
 }
-/*
-.back{
-  visibility: hidden;
+/*.back{
+  background-color: rgb(128, 0, 0);
 }*/
 /*++++++++++++++++++++ imagenes principales de las tarejtas +++++++++++++++ */
 img {
@@ -124,9 +123,8 @@ img {
 
 .imgSmall {
   position: relative;
-  object-fit: contain;
   height: 12vw;
-  width: 7.3vw;
+  width: 7.5vw;
   top: 2.6vw;
   left: 4vw;
 }
