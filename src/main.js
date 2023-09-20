@@ -13,8 +13,8 @@ if (currentPageURL.includes("info")) {
   indexHTML.appendChild(renderItems2()); // Llama a la función para la página de información
 } else {
   indexHTML.appendChild(renderItems(data)); // Llama a la función para la página principal (o cualquier otra página)
-  //selecD.appendChild(example(data));
-  console.log(example);
+  selecD.appendChild(example(data));
+  //console.log(example(data));
 }
 
 // import data from './data/rickandmorty/rickandmorty.js';

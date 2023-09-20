@@ -1,5 +1,5 @@
 // estas funciones son de ejemplo
-//import data from "./data/ghibli/ghibli.js";
+import data2 from "./data/ghibli/ghibli.js";
 //console.log(data.films);
 export const renderItems = (data) => {
   const films = data.films;
@@ -35,7 +35,7 @@ export const renderItems = (data) => {
 };
 
 
-import data2 from "./data/ghibli/ghibli.js";
+
 window.addEventListener("DOMContentLoaded", () => {
   //console.log(data2.films);
   const masInfo = document.querySelectorAll(".info");

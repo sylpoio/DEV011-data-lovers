@@ -37,7 +37,7 @@ footer {
   width: 100%;
   padding: 0;
 }
-#container, #containerP {
+#container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -45,6 +45,7 @@ footer {
   align-content: stretch;
   gap: 20px;
   padding: 50px;
+  
 }
 /*++++++++++++++++++++ tarejtas +++++++++++++++ */
 .card {
@@ -140,26 +141,3 @@ img {
 
 
 
-/* Media query para móviles) */
-@media screen and (max-width: 768px) {
-  .front,
-  .back {
-    font-size: 0.2rem; /* Tamaño de fuente más pequeño para pantallas pequeñas */
-  }
-}
-
-/* Media query para tabletas) */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .front,
-  .back {
-    font-size: 1rem; /* Tamaño de fuente mediano para pantallas medianas */
-  }
-}
-
-/* Media query para computadoras de escritorio) */
-@media screen and (min-width: 1025px) {
-  .front,
-  .back {
-    font-size: 2rem; /* Tamaño de fuente más grande para pantallas grandes */
-  }
-}
