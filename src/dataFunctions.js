@@ -2,37 +2,29 @@
 
 export const selectDirector = (data) => {
   const films = data.films;
-  let directoresHTML = "";
-  let direcFilter = "";
-  let direcUnico = [];
-  const selectDirector = document.createElement("select");
-  //identificacmos los datos de las peliculas
-  films.forEach((movie) => {
-    direcFilter += "," + movie.director; //crea los elementos del array directores por nombre
-    direcUnico = direcFilter.split(","); //separa los nombres por coma
-    // if(!direcFilter[movie]){
-    // direcUnicos = direcFilter.filter((direcFilterA, index) =>{
-    //   direcFilterA.indexOf(direcFilter) === index;
-    // });
-    //console.log(direcFilter);
-    //  directoresHTML += `
-    //     <option>${direcFilter[movie] = true}</option>`;
-    // }
-    //console.log(direcUnico);
+
+    let directorsUnique = "";
+  
+  const selectDirectorMenu = document.createElement("select");
+    selectDirectorMenu.setAttribute("data-testid","select-sort");
+    selectDirectorMenu.id="director";
+  
+const directorsHTML =(films) =>{
+  const directorMap = films.map((elem) =>{
+    return elem.director;
   });
+  const directorsFilter = directorMap.filter((item, index)=>{
+    return directorMap.indexOf(item) === index;
 
-  let dUnicas = new Set(direcUnico); //toma solo los daros unicos del director
-  dUnicas.forEach((director) => {
-    console.log(director);
-    directoresHTML += `<option>${director}</option>`;
-  }); //recorre el arreglo director para crear los <option>
+  });
+  console.log(directorsFilter);
 
-  // directoresHTML = "<option>" + dUnicas + "</option>";
-  //const direcUnico = Object.values(direcFilter);
-  // console.log(directoresHTML);
-  //return direcFilter;
-  selectDirector.innerHTML = directoresHTML;
-  return selectDirector;
+  directorsFilter.forEach(director=>{
+    directorsUnique += `<option value=${director}>${director}</option>`;
+  }); return directorsUnique;
+}
+  selectDirectorMenu.innerHTML = directorsHTML(films);
+  return selectDirectorMenu;
 };
 
 //------------------------select pruducer-------------------------------------------
@@ -40,42 +32,44 @@ export const selectProducer = (data) => {
   const films = data.films;
   let producerHTML = "";
   let producerFilter = "";
-  let producerUnico = [];
-  const selectProducer = document.createElement("select");
+  let producerUnique = [];
+  const selectProducerMenu = document.createElement("select");
+  selectProducerMenu.setAttribute("data-testid","select-sort");
+  selectProducerMenu.id="producer";
+
   //identificacmos los datos por productor
   films.forEach((movie) => {
     producerFilter += "," + movie.producer;
-    producerUnico = producerFilter.split(",");
+    producerUnique = producerFilter.split(",");
   });
 
-  let pUnicas = new Set(producerUnico);
-  pUnicas.forEach((producer) => {
+  let producerSelect = new Set(producerUnique);
+  producerSelect.forEach((producer) => {
     producerHTML += `<option>${producer}</option>`;
   });
-  selectProducer.innerHTML = producerHTML;
-  return selectProducer;
+  selectProducerMenu.innerHTML = producerHTML;
+  return selectProducerMenu;
 };
 //------------------------select release date -------------------------------------------
 export const selectDate = (data) => {
   const films = data.films;
   let dateHTML = "";
   let dateFilter = "";
-  let dateUnico = [];
-  const selectDate = document.createElement("select");
+  let dateUnique = [];
+  const selectDateMenu = document.createElement("select");
+  selectDateMenu.setAttribute("data-testid","select-sort");
+  selectDateMenu.id="release_date";
+
   //identificacmos los datos por productor
   films.forEach((movie) => {
     dateFilter += "," + movie.release_date;
-    dateUnico = dateFilter.split(",");
+    dateUnique = dateFilter.split(",");
   });
 
-  let rUnicas = new Set(dateUnico);
-  rUnicas.forEach((release) => {
+  let dateSelect = new Set(dateUnique);
+  dateSelect.forEach((release) => {
     dateHTML += `<option>${release}</option>`;
   });
-  selectDate.innerHTML = dateHTML;
-  return selectDate;
-};
-
-export const anotherExample = () => {
-  return [];
+  selectDateMenu.innerHTML = dateHTML;
+  return selectDateMenu;
 };
