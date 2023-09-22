@@ -6,9 +6,7 @@ export const renderItems = (data) => {
   let titlesHTML = "";
 
   const ul = document.createElement("ul");
-  ul.id='container';
-
-
+  ul.id = "container";
 
   //identificacmos los datos de las peliculas
   films.forEach((movie) => {
@@ -29,12 +27,10 @@ export const renderItems = (data) => {
       </div>  
     </li> `;
   });
-  
-  ul.innerHTML = titlesHTML
+
+  ul.innerHTML = titlesHTML;
   return ul;
 };
-
-
 
 window.addEventListener("DOMContentLoaded", () => {
   //console.log(data2.films);
@@ -65,7 +61,7 @@ export const renderItems2 = () => {
   const arrPeople = info.people;
 
   const ul2 = document.createElement("ul");
-  ul2.id='container';
+  ul2.id = "container";
 
   //console.log(arrPeople);
   arrPeople.forEach((people) => {
@@ -89,6 +85,25 @@ export const renderItems2 = () => {
      </li> `;
   });
   //console.log(tHTML);
-  ul2.innerHTML = peopleHTML
+  ul2.innerHTML = peopleHTML;
   return ul2;
+};
+
+//------------------------Crear options-------------------------------------------
+
+export const createOptions = (data, option) => {
+  const optionsMap = data.films.map((elements) => {
+    console.log(elements[option]);
+    return elements[option];
+  });
+  const uniqueOptions = optionsMap.filter((item, index) => {
+    return optionsMap.indexOf(item) === index;
+  });
+
+  let options = "";
+  uniqueOptions.forEach((element) => {
+    options += `<option value="${element}">${element}</option>`;
+  });
+  console.log(options);
+  return options;
 };

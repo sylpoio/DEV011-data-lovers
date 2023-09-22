@@ -15,17 +15,24 @@
     -->
     </header>
 
-  <main><h2></h2></main>
-<button data-testid="button-clear">Limpiar filtros</button>
+  <main>
+    <h2>Filter options</h2>
+<label for="director">Director</label>
+<select name="director" id="director"></select>
+<label for="producer">Producer</label>
+<select name="producer" id="producer"></select>
+<label for="release_date">Release Date</label>
+<select name="release_date" id="release_date"></select>
+<label for="rt_score">Rating score</label>
+<select name="rt_score" id="rt_score"></select>
 
-<label for="director"></label>
-<label for="producer"></label>
-<label for="release_date"></label>
+<label for="button-clear"></label>
+<button data-testid="button-clear" id="button-clear">Limpiar filtros</button>
 
   <div itemscope itemtype="films" id="root"> 
  
   </div>
-
+</main>
   <footer> 
     Desarrollado por Sara Ramírez y Sylvia Gómez
   </footer>
