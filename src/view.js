@@ -1,15 +1,12 @@
 // estas funciones son de ejemplo
-import data2 from "./data/ghibli/ghibli.js";
-//console.log(data.films);
+
 export const renderItems = (data) => {
-  const films = data.films;
+  const films = data;
   let titlesHTML = "";
 
   const ul = document.createElement("ul");
-  ul.id='container';
-
-
-
+  ul.id = "container";
+console.log(data);
   //identificacmos los datos de las peliculas
   films.forEach((movie) => {
     titlesHTML += `
@@ -29,33 +26,12 @@ export const renderItems = (data) => {
       </div>  
     </li> `;
   });
-  
-  ul.innerHTML = titlesHTML
+
+  ul.innerHTML = titlesHTML;
   return ul;
 };
 
 
-
-window.addEventListener("DOMContentLoaded", () => {
-  //console.log(data2.films);
-  const masInfo = document.querySelectorAll(".info");
-  //console.log(buttons);
-  let arrInfo = [];
-  masInfo.forEach((eventClick) => {
-    eventClick.addEventListener("click", (e) => {
-      // console.log("desde aqui", e.target.id);
-      data2.films.filter((movie) => {
-        if (movie.id === e.target.id) {
-          // console.log(movie.people);
-          arrInfo = movie;
-        }
-      });
-      //console.log(arrInfo);
-      localStorage.setItem("movieInfoLocalStorage", JSON.stringify(arrInfo));
-      window.location.href = "info.html";
-    });
-  });
-});
 
 export const renderItems2 = () => {
   const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
@@ -65,7 +41,7 @@ export const renderItems2 = () => {
   const arrPeople = info.people;
 
   const ul2 = document.createElement("ul");
-  ul2.id='container';
+  ul2.id = "container";
 
   //console.log(arrPeople);
   arrPeople.forEach((people) => {
@@ -89,6 +65,25 @@ export const renderItems2 = () => {
      </li> `;
   });
   //console.log(tHTML);
-  ul2.innerHTML = peopleHTML
+  ul2.innerHTML = peopleHTML;
   return ul2;
+};
+
+//------------------------Crear options-------------------------------------------
+
+export const createOptions = (data, option) => {
+  const optionsMap = data.films.map((elements) => {
+    console.log(elements[option]);
+    return elements[option];
+  });
+  const uniqueOptions = optionsMap.filter((item, index) => {
+    return optionsMap.indexOf(item) === index;
+  });
+
+  let options = "";
+  uniqueOptions.forEach((element) => {
+    options += `<option value="${element}">${element}</option>`;
+  });
+  console.log(options);
+  return options;
 };
