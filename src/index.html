@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Data Lovers</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-  <header>
-    <h1>Studios Ghibli</h1>
-    <!--
-         <img src="images/header2.png" alt="">
-    -->
+  <body>
+    <header>
+      <h1>Studios Ghibli</h1>
     </header>
 
-  <main>
-    <h2>Filter options</h2>
-<label for="director">Director</label>
-<select name="director" id="director"></select>
-<label for="producer">Producer</label>
-<select name="producer" id="producer"></select>
-<label for="release_date">Release Date</label>
-<select name="release_date" id="release_date"></select>
-<label for="rt_score">Rating score</label>
-<select name="rt_score" id="rt_score"></select>
+    <main>
+      <h2>Filter options</h2>
+      <label for="director">Director</label>
+      <select name="director" id="director"></select>
+      <label for="producer">Producer</label>
+      <select name="producer" id="producer"></select>
+      <label for="release_date">Release Date</label>
+      <select name="release_date" id="release_date"></select>
+      <label for="rt_score">Rating score</label>
+      <select name="rt_score" id="rt_score"></select>
 
-<label for="button-clear"></label>
-<button data-testid="button-clear" id="button-clear">Limpiar filtros</button>
+      <label for="button-clear"></label>
+      <button data-testid="button-clear" id="button-clear">
+        Limpiar filtros
+      </button>
 
-  <div itemscope itemtype="films" id="root"> 
- 
-  </div>
-</main>
-  <footer> 
-    Desarrollado por Sara Ramírez y Sylvia Gómez
-  </footer>
+      <div itemscope itemtype="films" id="root"></div>
+    </main>
+    <footer>Desarrollado por Sara Ramírez y Sylvia Gómez</footer>
 
-  <script src="main.js" type="module"></script>
-</body>
-
+    <script src="main.js" type="module"></script>
+  </body>
 </html>

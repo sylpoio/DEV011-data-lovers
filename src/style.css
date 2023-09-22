@@ -1,5 +1,5 @@
 body {
-  background-image: url("images/background.png");
+  background-image: url("images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 0;
@@ -16,7 +16,7 @@ header {
 }
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:"std";
   text-align: left;
   color: aliceblue;
   font-size: 5vw;
@@ -84,7 +84,7 @@ img {
 }
 /*++++++++++++++++++++ overlay +++++++++++++++ */
 .overlay {
-  background: rgba(56, 59, 226, 0.521); /* Fondo semitransparente para el texto */
+  background: rgba(7, 10, 173, 0.521); /* Fondo semitransparente para el texto */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,7 +94,8 @@ img {
 }
 
 .back p{
-  font-size: 1vw;
+  font-family:"std";
+  font-size: 1.2vw;
   text-align: left;
   padding: 5%;
   margin-top: -14px;
@@ -102,6 +103,7 @@ img {
 }
 .back h2{
   font-size: 2vw;
+  font-family:"std";
 }
 
 .card:hover .image{
