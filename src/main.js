@@ -1,5 +1,5 @@
-import { filterData, sortData} from "./dataFunctions.js";
 
+import { filterData, sortData} from "./dataFunctions.js";
 import { renderItems, renderItems2, createOptions } from "./view.js";
 
 // import data from './data/lol/lol.js';

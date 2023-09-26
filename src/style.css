@@ -83,7 +83,12 @@ img {
 }
 /*++++++++++++++++++++ overlay +++++++++++++++ */
 .overlay {
-  background: rgba(7, 10, 173, 0.521); /* Fondo semitransparente para el texto */
+  background: rgba(
+    7,
+    10,
+    173,
+    0.521
+  ); /* Fondo semitransparente para el texto */
   display: flex;
   flex-direction: column;
   justify-content: center;
