@@ -11,17 +11,15 @@ export const filterData = (data, filterBy, value) => {
 //------------------------Sort by alphabetic order-------------------------------------------
 export const sortData = (data, sortBy, sortOrder) => {
   const sortedData = data.sort((a, b) => {
+    console.log(a[sortBy]);
     if (a[sortBy] < b[sortBy]) {
       return sortOrder === "asc" ? -1 : 1;
     }
     if (a[sortBy] > b[sortBy]) {
       return sortOrder === "desc" ? 1 : -1;
     }
-    return 0;
+        return 0;
   });
-  console.log(data);
-  console.log(data[sortBy])
-  console.log(sortOrder);
   console.log(sortedData);
   return sortedData;
   };
@@ -53,3 +51,20 @@ export const sortData = (data, sortBy, sortOrder) => {
 //   console.log(descendent);
 //   return descendent;
 // };
+
+export const computeStat = (data) => {
+  const sum = data.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  const average = sum / data.length;
+  const max = data.reduce((accumulator, currentValue) => Math.max(accumulator, currentValue), -Infinity);
+  const min = data.reduce((accumulator, currentValue) => Math.min(accumulator, currentValue), Infinity);
+
+  console.log (sum)
+  return {
+    sum: sum,
+    average: average,
+    max: max,
+    min: min
+  };
+}
+
+
