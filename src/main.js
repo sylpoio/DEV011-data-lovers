@@ -13,6 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const currentPageURL = window.location.href;
   const ascendent = document.querySelector("#ascendent");
   const descendent = document.querySelector("#descendent");
+  const cleanButton=document.querySelector("#button-clear")
 
   //------------------------llamar Characters-------------------------------------------
 
@@ -79,12 +80,20 @@ window.addEventListener("DOMContentLoaded", () => {
   descendent.addEventListener("change", () => {
     if (descendent.checked) {
       const descendentData = sortDescendent(data.films);
-      indexHTML.innerHTML = "";
       console.log("Datos ordenados de forma descendente:", descendentData);
       indexHTML.appendChild(renderItems(descendentData));
       accessInfo();
     }
   });
+
+  //------------------------Botón limpiar-------------------------------------------
+
+  cleanButton.addEventListener("click", ()=> {
+    indexHTML.innerHTML = "";
+    indexHTML.appendChild(renderItems(data.films))
+    accessInfo();
+  });
+
 
   //------------------------imprimir hoja HTML info-------------------------------------------
 
