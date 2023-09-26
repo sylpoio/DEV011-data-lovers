@@ -33,20 +33,15 @@ export const renderItems = (data) => {
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-  //console.log(data2.films);
   const masInfo = document.querySelectorAll(".info");
-  //console.log(buttons);
   let arrInfo = [];
   masInfo.forEach((eventClick) => {
     eventClick.addEventListener("click", (e) => {
-      // console.log("desde aqui", e.target.id);
       data2.films.filter((movie) => {
         if (movie.id === e.target.id) {
-          // console.log(movie.people);
           arrInfo = movie;
         }
       });
-      //console.log(arrInfo);
       localStorage.setItem("movieInfoLocalStorage", JSON.stringify(arrInfo));
       window.location.href = "info.html";
     });
@@ -54,16 +49,13 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 export const renderItems2 = () => {
-  const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
-  //console.log(info);
-  //identificacmos los datos de las peliculas
+  const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));  //identificacmos los datos de las peliculas
   let peopleHTML = "";
   const arrPeople = info.people;
 
   const ul2 = document.createElement("ul");
   ul2.id = "container";
 
-  //console.log(arrPeople);
   arrPeople.forEach((people) => {
     peopleHTML += `
      <li class="card">
@@ -84,7 +76,6 @@ export const renderItems2 = () => {
         </table>
      </li> `;
   });
-  //console.log(tHTML);
   ul2.innerHTML = peopleHTML;
   return ul2;
 };
@@ -93,7 +84,6 @@ export const renderItems2 = () => {
 
 export const createOptions = (data, option) => {
   const optionsMap = data.films.map((elements) => {
-    // console.log(elements[option]);
     return elements[option];
   });
   const uniqueOptions = optionsMap.filter((item, index) => {
@@ -104,6 +94,5 @@ export const createOptions = (data, option) => {
   uniqueOptions.forEach((element) => {
     options += `<option value="${element}">${element}</option>`;
   });
-  //console.log(options);
   return options;
 };

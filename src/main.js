@@ -72,7 +72,6 @@ window.addEventListener("DOMContentLoaded", () => {
       if (ascendent.checked) {
         const ascendentData = sortData(data.films, "title", "asc");
         indexHTML.innerHTML = "";
-        //console.log("Datos ordenados de forma ascendente:", renderItems(ascendentData));
         indexHTML.appendChild(renderItems(ascendentData));
         accessInfo();
       }
@@ -82,7 +81,6 @@ window.addEventListener("DOMContentLoaded", () => {
       if (descendent.checked) {
         const descendentData = sortData(data.films, "title", "desc");
         indexHTML.innerHTML = "";
-        //console.log("Datos ordenados de forma descendente:", renderItems(descendentData));
         indexHTML.appendChild(renderItems(descendentData));
         accessInfo();
       }
@@ -105,21 +103,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //------------------------imprimir hoja HTML info-------------------------------------------
     function accessInfo() {
-      //console.log(data2.films);
       const masInfo = document.querySelectorAll(".info");
-      //console.log(masInfo, "se renderiza");
-      //console.log(buttons);
       let arrInfo = [];
       masInfo.forEach((eventClick) => {
         eventClick.addEventListener("click", (e) => {
           console.log("desde aqui", e.target.id);
           data.films.filter((movie) => {
             if (movie.id === e.target.id) {
-              // console.log(movie.people);
               arrInfo = movie;
             }
           });
-          //console.log(arrInfo);
           localStorage.setItem(
             "movieInfoLocalStorage",
             JSON.stringify(arrInfo)
@@ -131,20 +124,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //------------------------llamarCharacters-------------------------------------------
     window.addEventListener("DOMContentLoaded", () => {
-      //console.log(data2.films);
       const masInfo = document.querySelectorAll(".info");
-      //console.log(buttons);
       let arrInfo = [];
       masInfo.forEach((eventClick) => {
         eventClick.addEventListener("click", (e) => {
-          // console.log("desde aqui", e.target.id);
           data.films.filter((movie) => {
             if (movie.id === e.target.id) {
-              // console.log(movie.people);
               arrInfo = movie;
             }
           });
-          //console.log(arrInfo);
           localStorage.setItem(
             "movieInfoLocalStorage",
             JSON.stringify(arrInfo)
