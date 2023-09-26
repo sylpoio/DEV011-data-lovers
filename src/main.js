@@ -1,11 +1,11 @@
-import { filterData, sortAscendent, sortDescendent } from "./dataFunctions.js";
+import { filterData, sortData } from "./dataFunctions.js";
 import { renderItems, renderItems2, createOptions } from "./view.js";
 
 // import data from './data/lol/lol.js';
 import data from "./data/ghibli/ghibli.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  let indexHTML = document.querySelector("#root");
+  const indexHTML = document.querySelector("#root");
   const menuDirector = document.querySelector("#director");
   const menuProducer = document.querySelector("#producer");
   const menuDate = document.querySelector("#release_date");
@@ -39,7 +39,8 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterDirector));
       accessInfo();
     });
-  }
+  };
+
   menuProducer.addEventListener("change", () => {
     const filterProducer = filterData(
       data.films,
@@ -63,36 +64,38 @@ window.addEventListener("DOMContentLoaded", () => {
     accessInfo();
   });
 
+  //------------------------Botón limpiar-------------------------------------------
+
+  cleanButton.addEventListener("click", ()=> {
+    descendent.checked=false;
+    ascendent.checked=false;
+    indexHTML.innerHTML = "";
+    indexHTML.appendChild(renderItems(data.films));
+    accessInfo();
+    console.log(renderItems(data.films))
+  });
+
   //------------------------imprimir ascendente/descendente-------------------------------------------
   ascendent.addEventListener("change", () => {
     if (ascendent.checked) {
-      const ascendentData = sortAscendent(data.films);
+      const ascendentData = sortData(data.films, "title", "asc");
       indexHTML.innerHTML = "";
-      console.log(
-        "Datos ordenados de forma ascendente:",
-        renderItems(ascendentData)
-      );
-      indexHTML.appendChild(renderItems(ascendentData));
+      console.log("Datos ordenados de forma ascendente:", renderItems(ascendentData));
+          indexHTML.appendChild(renderItems(ascendentData));
       accessInfo();
     }
   });
 
   descendent.addEventListener("change", () => {
     if (descendent.checked) {
-      const descendentData = sortDescendent(data.films);
-      console.log("Datos ordenados de forma descendente:", descendentData);
+      const descendentData = sortData(data.films,"title", "desc");
+      indexHTML.innerHTML = "";
+      console.log("Datos ordenados de forma descendente:", renderItems(descendentData));
       indexHTML.appendChild(renderItems(descendentData));
       accessInfo();
     }
   });
 
-  //------------------------Botón limpiar-------------------------------------------
-
-  cleanButton.addEventListener("click", ()=> {
-    indexHTML.innerHTML = "";
-    indexHTML.appendChild(renderItems(data.films))
-    accessInfo();
-  });
 
 
   //------------------------imprimir hoja HTML info-------------------------------------------
@@ -100,7 +103,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function accessInfo() {
     //console.log(data2.films);
     const masInfo = document.querySelectorAll(".info");
-    console.log(masInfo, "se renderiza");
+    //console.log(masInfo, "se renderiza");
     //console.log(buttons);
     let arrInfo = [];
     masInfo.forEach((eventClick) => {
