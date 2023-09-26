@@ -1,4 +1,4 @@
-import { filterData, sortAscendent, sortDescendent } from "./dataFunctions.js";
+import { filterData, sortData} from "./dataFunctions.js";
 
 import { renderItems, renderItems2, createOptions } from "./view.js";
 
@@ -67,12 +67,9 @@ window.addEventListener("DOMContentLoaded", () => {
   //------------------------imprimir ascendente/descendente-------------------------------------------
   ascendent.addEventListener("change", () => {
     if (ascendent.checked) {
-      const ascendentData = sortAscendent(data.films);
+      const ascendentData = sortData(data.films, "title", "asc");
       indexHTML.innerHTML = "";
-      console.log(
-        "Datos ordenados de forma ascendente:",
-        renderItems(ascendentData)
-      );
+      console.log("Datos ordenados de forma ascendente:", renderItems(ascendentData));
       indexHTML.appendChild(renderItems(ascendentData));
       accessInfo();
     }
@@ -80,7 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   descendent.addEventListener("change", () => {
     if (descendent.checked) {
-      const descendentData = sortDescendent(data.films);
+      const descendentData = sortData(data.films, "title", "desc");
       console.log("Datos ordenados de forma descendente:", descendentData);
       indexHTML.appendChild(renderItems(descendentData));
       accessInfo();
@@ -101,7 +98,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function accessInfo() {
     //console.log(data2.films);
     const masInfo = document.querySelectorAll(".info");
-    console.log(masInfo, "se renderiza");
+    //console.log(masInfo, "se renderiza");
     //console.log(buttons);
     let arrInfo = [];
     masInfo.forEach((eventClick) => {
