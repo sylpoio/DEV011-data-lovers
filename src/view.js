@@ -31,6 +31,27 @@ export const renderItems = (data) => {
   return ul;
 };
 
+window.addEventListener("DOMContentLoaded", () => {
+  //console.log(data2.films);
+  const masInfo = document.querySelectorAll(".info");
+  //console.log(buttons);
+  let arrInfo = [];
+  masInfo.forEach((eventClick) => {
+    eventClick.addEventListener("click", (e) => {
+      // console.log("desde aqui", e.target.id);
+      data2.films.filter((movie) => {
+        if (movie.id === e.target.id) {
+          // console.log(movie.people);
+          arrInfo = movie;
+        }
+      });
+      //console.log(arrInfo);
+      localStorage.setItem("movieInfoLocalStorage", JSON.stringify(arrInfo));
+      window.location.href = "info.html";
+    });
+  });
+});
+
 export const renderItems2 = () => {
   const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
   //console.log(info);

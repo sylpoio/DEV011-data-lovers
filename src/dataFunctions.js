@@ -1,6 +1,7 @@
 // estas funciones son de ejemplo
 
 export const filterData = (data, filterBy, value) => {
+
   return data.filter((element) => {
     console.log(value);
     return element[filterBy] === value;
@@ -19,7 +20,7 @@ export const sortData = (data, sortBy, sortOrder) => {
     return 0;
   });
   console.log(data);
-  console.log(data.films[sortBy])
+  console.log(data[sortBy])
   console.log(sortOrder);
   console.log(sortedData);
   return sortedData;
