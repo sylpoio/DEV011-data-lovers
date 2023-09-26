@@ -6,7 +6,8 @@ export const renderItems = (data) => {
 
   const ul = document.createElement("ul");
   ul.id = "container";
-  //console.log(data);
+
+
   //identificacmos los datos de las peliculas
   films.forEach((movie) => {
     titlesHTML += `

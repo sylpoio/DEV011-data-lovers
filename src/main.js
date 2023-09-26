@@ -1,4 +1,3 @@
-
 import { filterData, sortAscendent, sortDescendent } from "./dataFunctions.js";
 
 import { renderItems, renderItems2, createOptions } from "./view.js";
