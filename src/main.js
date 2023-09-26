@@ -1,4 +1,3 @@
-
 import { filterData, sortAscendent, sortDescendent } from "./dataFunctions.js";
 
 import { renderItems, renderItems2, createOptions } from "./view.js";
@@ -121,7 +120,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-=======
+
 let indexHTML = document.querySelector("#root");
 const menuDirector = document.querySelector("#director");
 const menuProducer = document.querySelector("#producer");

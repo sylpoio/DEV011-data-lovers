@@ -16,7 +16,7 @@ header {
 }
 
 h1 {
-  font-family:"std";
+  font-family: "std";
   text-align: left;
   color: aliceblue;
   font-size: 5vw;
@@ -45,7 +45,6 @@ footer {
   align-content: stretch;
   gap: 20px;
   padding: 50px;
-  
 }
 /*++++++++++++++++++++ tarejtas +++++++++++++++ */
 .card {
@@ -80,41 +79,45 @@ footer {
 img {
   width: 100%;
   height: 100%;
-  height: 100%;
   object-fit: contain;
 }
 /*++++++++++++++++++++ overlay +++++++++++++++ */
 .overlay {
-  background: rgba(7, 10, 173, 0.521); /* Fondo semitransparente para el texto */
+  background: rgba(
+    7,
+    10,
+    173,
+    0.521
+  ); /* Fondo semitransparente para el texto */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;  /*Inicialmente oculto */
+  opacity: 0; /*Inicialmente oculto */
   transition: opacity 0.3s; /* Transición suave para mostrar/ocultar */
 }
 
-.back p{
-  font-family:"std";
+.back p {
+  font-family: "std";
   font-size: 1.2vw;
   text-align: left;
   padding: 5%;
   margin-top: -14px;
   margin-bottom: -14px;
 }
-.back h2{
+.back h2 {
   font-size: 2vw;
-  font-family:"std";
+  font-family: "std";
 }
 
-.card:hover .image{
+.card:hover .image {
   opacity: 0;
 }
 
-.card:hover .overlay{
+.card:hover .overlay {
   opacity: 1;
 }
-.info{
+.info {
   text-decoration: underline;
 }
 /*+++++++++++++++++++++++++++ estilos segundas tarejtas ++++++++++++++++++++ */
@@ -133,14 +136,11 @@ img {
   left: 4vw;
 }
 
-.description{
+.description {
   position: relative;
-  margin-top: .6rem;
+  margin-top: 0.6rem;
   left: 3rem;
   font-size: small;
   height: 5rem;
   text-align: left;
 }
-
-
-

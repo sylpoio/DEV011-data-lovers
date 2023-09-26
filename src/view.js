@@ -7,7 +7,6 @@ export const renderItems = (data) => {
   const ul = document.createElement("ul");
   ul.id = "container";
 
-  //console.log(data);
 
   //identificacmos los datos de las peliculas
   films.forEach((movie) => {
@@ -33,6 +32,26 @@ export const renderItems = (data) => {
   return ul;
 };
 
+window.addEventListener("DOMContentLoaded", () => {
+  //console.log(data2.films);
+  const masInfo = document.querySelectorAll(".info");
+  //console.log(buttons);
+  let arrInfo = [];
+  masInfo.forEach((eventClick) => {
+    eventClick.addEventListener("click", (e) => {
+      // console.log("desde aqui", e.target.id);
+      data2.films.filter((movie) => {
+        if (movie.id === e.target.id) {
+          // console.log(movie.people);
+          arrInfo = movie;
+        }
+      });
+      //console.log(arrInfo);
+      localStorage.setItem("movieInfoLocalStorage", JSON.stringify(arrInfo));
+      window.location.href = "info.html";
+    });
+  });
+});
 
 export const renderItems2 = () => {
   const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
@@ -75,9 +94,6 @@ export const renderItems2 = () => {
 export const createOptions = (data, option) => {
   const optionsMap = data.films.map((elements) => {
     // console.log(elements[option]);
-
-    console.log(elements[option]);
-
     return elements[option];
   });
   const uniqueOptions = optionsMap.filter((item, index) => {
@@ -88,10 +104,6 @@ export const createOptions = (data, option) => {
   uniqueOptions.forEach((element) => {
     options += `<option value="${element}">${element}</option>`;
   });
-
   //console.log(options);
-
-  console.log(options);
-
   return options;
 };
