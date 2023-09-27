@@ -6,7 +6,7 @@ export const renderItems = (data) => {
 
   const ul = document.createElement("ul");
   ul.id = "container";
-//console.log(data);
+  //console.log(data);
   //identificacmos los datos de las peliculas
   films.forEach((movie) => {
     titlesHTML += `
@@ -30,8 +30,6 @@ export const renderItems = (data) => {
   ul.innerHTML = titlesHTML;
   return ul;
 };
-
-
 
 export const renderItems2 = () => {
   const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
@@ -73,7 +71,7 @@ export const renderItems2 = () => {
 
 export const createOptions = (data, option) => {
   const optionsMap = data.films.map((elements) => {
-   // console.log(elements[option]);
+    // console.log(elements[option]);
     return elements[option];
   });
   const uniqueOptions = optionsMap.filter((item, index) => {
