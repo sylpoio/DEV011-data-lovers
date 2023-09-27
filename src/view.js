@@ -6,7 +6,7 @@ export const renderItems = (data) => {
 
   const ul = document.createElement("ul");
   ul.id = "container";
-
+//console.log(data);
   //identificacmos los datos de las peliculas
   films.forEach((movie) => {
     titlesHTML += `
@@ -25,15 +25,7 @@ export const renderItems = (data) => {
           </div> 
       </div>  
     </li> `;
-
-
   });
-  ul2.innerHTML = peopleHTML;
-  return ul2;
-};
-
-//------------------------Crear options-------------------------------------------
-
 
   ul.innerHTML = titlesHTML;
   return ul;
@@ -75,7 +67,6 @@ export const renderItems2 = () => {
   //console.log(tHTML);
   ul2.innerHTML = peopleHTML;
   return ul2;
-
 };
 
 //------------------------Crear options-------------------------------------------

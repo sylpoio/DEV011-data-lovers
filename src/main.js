@@ -1,9 +1,8 @@
 import { filterData, sortData,  } from "./dataFunctions.js";
 import { renderItems, renderItems2, createOptions } from "./view.js";
-
 import data from "./data/ghibli/ghibli.js";
 
-window.addEventListener("DOMContentLoaded", () => {
+//window.addEventListener("DOMContentLoaded", () => {
   let indexHTML = document.querySelector("#root");
   const menuDirector = document.querySelector("#director");
   const menuProducer = document.querySelector("#producer");
@@ -12,8 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const currentPageURL = window.location.href;
   const ascendent = document.querySelector("#ascendent");
   const descendent = document.querySelector("#descendent");
-  const cleanButton = document.querySelector("#button-clear");
-  const stadistics = document.querySelector("#stadistics");
+  const cleanButton=document.querySelector("#button-clear")
 
   //------------------------llamar Characters-------------------------------------------
 
@@ -21,8 +19,8 @@ window.addEventListener("DOMContentLoaded", () => {
     indexHTML.appendChild(renderItems2()); // Llama a la función para la página de información
   } else {
     indexHTML.appendChild(renderItems(data.films)); // Llama a la función para la página principal (o cualquier otra página)
-
     accessInfo();
+  
     //------------------------imprimir options-------------------------------------------
     menuDirector.innerHTML = createOptions(data, "director");
     menuProducer.innerHTML = createOptions(data, "producer");
@@ -40,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterDirector));
       accessInfo();
     });
-
+  
   menuProducer.addEventListener("change", () => {
     const filterProducer = filterData(
       data.films,
