@@ -81,9 +81,10 @@ export const createOptions = (data, option) => {
   });
 
   let options = "";
+  const optionsNull = `<option value="" disabled selected> select</option>`;
   uniqueOptions.forEach((element) => {
     options += `<option value="${element}">${element}</option>`;
   });
   //console.log(options);
-  return options;
+  return optionsNull + options;
 };

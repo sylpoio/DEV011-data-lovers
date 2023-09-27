@@ -66,10 +66,15 @@ import data from "./data/ghibli/ghibli.js";
   
   cleanButton.addEventListener("click", () => {
     indexHTML.innerHTML = "";
-    indexHTML.appendChild(renderItems(data.films));
-    accessInfo();
     ascendent.checked=false;
     descendent.checked=false;
+    indexHTML.appendChild(renderItems(data.films));
+     menuDirector.innerHTML = createOptions(data, "director");
+     menuProducer.innerHTML = createOptions(data, "producer");
+     menuDate.innerHTML = createOptions(data, "release_date");
+    menuRtScore.innerHTML = createOptions(data, "rt_score");
+    accessInfo();
+    
   });
  //------------------------imprimir ascendente/descendente-------------------------------------------
  ascendent.addEventListener("change", () => {
