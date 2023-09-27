@@ -11,8 +11,9 @@ import data from "./data/ghibli/ghibli.js";
   const currentPageURL = window.location.href;
   const ascendent = document.querySelector("#ascendent");
   const descendent = document.querySelector("#descendent");
-  const cleanButton=document.querySelector("#button-clear")
-
+  const cleanButton=document.querySelector("#button-clear");
+  const originalData=[...data.films];
+  
   //------------------------llamar Characters-------------------------------------------
 
   if (currentPageURL.includes("info")) {
@@ -28,8 +29,9 @@ import data from "./data/ghibli/ghibli.js";
     menuRtScore.innerHTML = createOptions(data, "rt_score");
 
     //------------------------imprimir filters con select posters-------------------------------------------
+    let filterDirector;
     menuDirector.addEventListener("change", () => {
-      const filterDirector = filterData(
+      filterDirector = filterData(
         data.films,
         "director",
         menuDirector.value
@@ -37,10 +39,13 @@ import data from "./data/ghibli/ghibli.js";
       indexHTML.innerHTML = "";
       indexHTML.appendChild(renderItems(filterDirector));
       accessInfo();
+      ascendent.checked=false;
+    descendent.checked=false;
     });
   
+    let filterProducer;
   menuProducer.addEventListener("change", () => {
-    const filterProducer = filterData(
+    filterProducer = filterData(
       data.films,
       "producer",
       menuProducer.value
@@ -48,18 +53,28 @@ import data from "./data/ghibli/ghibli.js";
     indexHTML.innerHTML = "";
     indexHTML.appendChild(renderItems(filterProducer));
     accessInfo();
+    ascendent.checked=false;
+    descendent.checked=false;
   });
+
+  let filterDate;
   menuDate.addEventListener("change", () => {
-    const filterDate = filterData(data.films, "release_date", menuDate.value);
+    filterDate = filterData(data.films, "release_date", menuDate.value);
     indexHTML.innerHTML = "";
     indexHTML.appendChild(renderItems(filterDate));
     accessInfo();
+    ascendent.checked=false;
+    descendent.checked=false;
   });
+
+  let filterRtScore;
   menuRtScore.addEventListener("change", () => {
-    const filterRtScore = filterData(data.films, "rt_score", menuRtScore.value);
+    filterRtScore = filterData(data.films, "rt_score", menuRtScore.value);
     indexHTML.innerHTML = "";
     indexHTML.appendChild(renderItems(filterRtScore));
     accessInfo();
+    ascendent.checked=false;
+    descendent.checked=false;
   });
 
   //------------------------Botón limpiar-------------------------------------------
@@ -68,7 +83,7 @@ import data from "./data/ghibli/ghibli.js";
     indexHTML.innerHTML = "";
     ascendent.checked=false;
     descendent.checked=false;
-    indexHTML.appendChild(renderItems(data.films));
+    indexHTML.appendChild(renderItems(originalData));
      menuDirector.innerHTML = createOptions(data, "director");
      menuProducer.innerHTML = createOptions(data, "producer");
      menuDate.innerHTML = createOptions(data, "release_date");
@@ -78,22 +93,59 @@ import data from "./data/ghibli/ghibli.js";
   });
  //------------------------imprimir ascendente/descendente-------------------------------------------
  ascendent.addEventListener("change", () => {
+  
   if (ascendent.checked) {
-    const ascendentData = sortData(data.films, "title", "asc");
+    let dataToSort = null;
+    if (filterDirector) {
+      dataToSort = filterDirector;
+    } else if (filterProducer) {
+      dataToSort = filterProducer;
+    }
+      else if (filterDate) {
+        dataToSort=filterDate;
+      }
+      else if (filterRtScore) {
+        dataToSort=filterRtScore;
+      }
+    else {
+      dataToSort = data.films;
+    }
+    const ascendentData = sortData(dataToSort, "title", "asc");
     indexHTML.innerHTML = "";
     indexHTML.appendChild(renderItems(ascendentData));
     accessInfo();
   }
-});
+  });
 
 descendent.addEventListener("change", () => {
   if (descendent.checked) {
-    const descendentData = sortData(data.films, "title", "desc");
+    let dataToSort = null;
+    if (filterDirector) {
+      dataToSort = filterDirector;
+    } else if (filterProducer) {
+      dataToSort = filterProducer;
+    }
+      else if (filterDate) {
+        dataToSort=filterDate;
+      }
+      else if (filterRtScore) {
+        dataToSort=filterRtScore;
+      }
+    else {
+      dataToSort = data.films;
+    }
+    const descendentData = sortData(dataToSort, "title", "desc");
     indexHTML.innerHTML = "";
     indexHTML.appendChild(renderItems(descendentData));
     accessInfo();
   }
 });
+
+
+
+
+
+
 }
 
 //------------------------Imprimir estdísticas-------------------------------------------
