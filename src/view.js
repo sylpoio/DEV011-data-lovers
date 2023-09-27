@@ -15,15 +15,15 @@ export const renderItems = (data) => {
         <img itemprop="poster" src=${movie.poster} alt="${movie.title} Poster"/>
       </div>
       <div class="overlay" >  
-          <div class="back">
-            <h2 itemprop="title">${movie.title}</h2>
-            <p itemprop="director">Director: ${movie.director}</p> 
-            <p itemprop="producer">Producer: ${movie.producer}</p>  
-            <p itemprop="release_date">Release date: ${movie.release_date}</p> 
-            <p itemprop="rt_score">Rating score: ${movie.rt_score}</p>
-            <p class="info" id=${movie.id}> >>Click here for more info<< </p>
-          </div> 
-      </div>  
+      <div class="back">
+        <h2 itemprop="title">${movie.title}</h2>
+        <p itemprop="director">Director: ${movie.director}</p> 
+        <p itemprop="producer">Producer: ${movie.producer}</p>  
+        <p itemprop="release_date">Release date: ${movie.release_date}</p> 
+        <p itemprop="rt_score">Rating score: ${movie.rt_score}</p>
+        <p class="info" id=${movie.id}> >>Click here for more info<< </p>
+      </div> 
+  </div>  
     </li> `;
   });
 
@@ -41,27 +41,14 @@ export const renderItems2 = () => {
   const arrPeople = info.people;
 
   const ul2 = document.createElement("ul");
-  ul2.id = "container";
+  ul2.id = "container2";
 
   //console.log(arrPeople);
   arrPeople.forEach((people) => {
     peopleHTML += `
-     <li class="card">
-       <div class="front"><img src="images/tarjeta2.jpg" alt="informacion"/></div>
-       <div class="imgSmall"><img src=${people.img} alt="${people.name} Poster"/></div>
-       <div class="name">${people.name}</div>
-       <table border=0 class="description">
-         <tr>
-         <td width="180px">Gender: ${people.gender}</td>
-         </tr>
-         <tr>
-         <td>Age: ${people.age}</td>
-         </tr>
-         <tr>
-         <td>Eye color: ${people.eye_color}</td>
-         </tr>
-         <tr><td>Hair color: ${people.hair_color}</td></tr>
-        </table>
+     <li class="card2">
+       <img src="images/tarjeta2.jpg" alt="informacion"/>
+       <img class="imgSmall" src=${people.img} alt="${people.name} Poster"/>
      </li> `;
   });
   //console.log(tHTML);
