@@ -7,7 +7,6 @@ export const renderItems = (data) => {
   const ul = document.createElement("ul");
   ul.id = "container";
 
-
   //identificacmos los datos de las peliculas
   films.forEach((movie) => {
     titlesHTML += `
@@ -26,36 +25,33 @@ export const renderItems = (data) => {
           </div> 
       </div>  
     </li> `;
+
+
   });
+  ul2.innerHTML = peopleHTML;
+  return ul2;
+};
+
+//------------------------Crear options-------------------------------------------
+
 
   ul.innerHTML = titlesHTML;
   return ul;
 };
 
-window.addEventListener("DOMContentLoaded", () => {
-  const masInfo = document.querySelectorAll(".info");
-  let arrInfo = [];
-  masInfo.forEach((eventClick) => {
-    eventClick.addEventListener("click", (e) => {
-      data2.films.filter((movie) => {
-        if (movie.id === e.target.id) {
-          arrInfo = movie;
-        }
-      });
-      localStorage.setItem("movieInfoLocalStorage", JSON.stringify(arrInfo));
-      window.location.href = "info.html";
-    });
-  });
-});
+
 
 export const renderItems2 = () => {
-  const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));  //identificacmos los datos de las peliculas
+  const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
+  //console.log(info);
+  //identificacmos los datos de las peliculas
   let peopleHTML = "";
   const arrPeople = info.people;
 
   const ul2 = document.createElement("ul");
   ul2.id = "container";
 
+  //console.log(arrPeople);
   arrPeople.forEach((people) => {
     peopleHTML += `
      <li class="card">
@@ -76,14 +72,17 @@ export const renderItems2 = () => {
         </table>
      </li> `;
   });
+  //console.log(tHTML);
   ul2.innerHTML = peopleHTML;
   return ul2;
+
 };
 
 //------------------------Crear options-------------------------------------------
 
 export const createOptions = (data, option) => {
   const optionsMap = data.films.map((elements) => {
+   // console.log(elements[option]);
     return elements[option];
   });
   const uniqueOptions = optionsMap.filter((item, index) => {
@@ -94,5 +93,6 @@ export const createOptions = (data, option) => {
   uniqueOptions.forEach((element) => {
     options += `<option value="${element}">${element}</option>`;
   });
+  //console.log(options);
   return options;
 };
