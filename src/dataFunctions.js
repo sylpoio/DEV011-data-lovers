@@ -27,5 +27,5 @@ export const computeStat = (data) => {
   const sum = data.reduce((a, b, c) => 1+ c, 0);
   console.log("Resultado: ", sum);
 
-  return sum;
+  return "Total films: " +  sum;
 };
