@@ -1,16 +1,15 @@
 // estas funciones son de ejemplo
 
 export const renderItems = (data) => {
-  const films = data;
   let titlesHTML = "";
 
   const ul = document.createElement("ul");
   ul.id = "container";
-  //console.log(data);
+  console.log(data);
   //identificacmos los datos de las peliculas
-  films.forEach((movie) => {
+  data.forEach((movie) => {
     titlesHTML += `
-    <li class="card" itemtype="films">
+    <li class="card" itemscope itemtype="films">
       <div class="front" >
         <img itemprop="poster" src=${movie.poster} alt="${movie.title} Poster"/>
       </div>

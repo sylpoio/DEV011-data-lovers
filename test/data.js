@@ -1,9 +1,8 @@
 // Aqui puedes agregar los datos que necesites para tus pruebas
 // al menos debe tener uno que se llame "data"
 
-export const data = {
-  "studio": "Studio Ghibli Inc.",
-  "films": [
+export const data = 
+  [
     {
       "id": "2baf70d1-42bb-4437-b551-e5fed5a87abe",
       "title": "Castle in the Sky",
@@ -480,4 +479,4 @@ export const data = {
       ],
       "vehicles": []
     },
-  ]};
+  ];
