@@ -8,7 +8,8 @@ export const filterData = (data, filterBy, value) => {
 
 //------------------------Sort by alphabetic order-------------------------------------------
 export const sortData = (data, sortBy, sortOrder) => {
-  const sortedData = data.sort((a, b) => {
+  const copiedData = [...data]
+  const sortedData = copiedData.sort((a, b) => {
     if (a[sortBy] < b[sortBy]) {
       return sortOrder === "asc" ? -1 : 1;
     }
@@ -22,25 +23,9 @@ export const sortData = (data, sortBy, sortOrder) => {
 //------------------------Stadistics------------------------------------------
 
 export const computeStat = (data) => {
-  const sum = data.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0
-  );
-  const average = sum / data.length;
-  const max = data.reduce(
-    (accumulator, currentValue) => Math.max(accumulator, currentValue),
-    -Infinity
-  );
-  const min = data.reduce(
-    (accumulator, currentValue) => Math.min(accumulator, currentValue),
-    Infinity
-  );
+  //const dataNum=data.length
+  const sum = data.reduce((a, b, c) => 1+ c, 0);
+  console.log("Resultado: ", sum);
 
-  console.log(sum);
-  return {
-    sum: sum,
-    average: average,
-    max: max,
-    min: min,
-  };
+  return sum;
 };
