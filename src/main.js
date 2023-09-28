@@ -12,7 +12,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const ascendent = document.querySelector("#ascendent");
   const descendent = document.querySelector("#descendent");
   const cleanButton = document.querySelector("#button-clear");
-  const originalData = [...data.films];
   const stadistics = document.querySelector("#stadistics");
 
   //------------------------llamar Characters-------------------------------------------
@@ -76,11 +75,15 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.innerHTML = "";
       ascendent.checked = false;
       descendent.checked = false;
-      indexHTML.appendChild(renderItems(originalData));
+      indexHTML.appendChild(renderItems(data.films));
       menuDirector.innerHTML = createOptions(data, "director");
       menuProducer.innerHTML = createOptions(data, "producer");
       menuDate.innerHTML = createOptions(data, "release_date");
       menuRtScore.innerHTML = createOptions(data, "rt_score");
+      filterDirector="";
+      filterProducer="";
+      filterDate="";
+      filterRtScore="";
       accessInfo();
     });
     //------------------------imprimir ascendente/descendente-------------------------------------------
@@ -102,6 +105,7 @@ window.addEventListener("DOMContentLoaded", () => {
         indexHTML.innerHTML = "";
         indexHTML.appendChild(renderItems(ascendentData));
         accessInfo();
+        console.log(ascendentData);
       }
     });
 
@@ -129,7 +133,6 @@ window.addEventListener("DOMContentLoaded", () => {
     //------------------------Imprimir estdísticas-------------------------------------------
 
     stadistics.innerHTML = computeStat(data.films);
-    console.log(computeStat(data.films).number);
   }
 
   //------------------------imprimir hoja HTML info-------------------------------------------
