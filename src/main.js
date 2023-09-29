@@ -22,6 +22,10 @@ window.addEventListener("DOMContentLoaded", () => {
     indexHTML.appendChild(renderItems(data.films)); // Llama a la función para la página principal (o cualquier otra página)
     accessInfo();
 
+    //------------------------Imprimir estdísticas-------------------------------------------
+
+    stadistics.innerHTML = computeStat(data.films);
+
     //------------------------imprimir options-------------------------------------------
     menuDirector.innerHTML = createOptions(data, "director");
     menuProducer.innerHTML = createOptions(data, "producer");
@@ -34,6 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
       filterDirector = filterData(data.films, "director", menuDirector.value);
       indexHTML.innerHTML = "";
       indexHTML.appendChild(renderItems(filterDirector));
+      stadistics.innerHTML = computeStat(filterDirector);
       accessInfo();
       ascendent.checked = false;
       descendent.checked = false;
@@ -44,6 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
       filterProducer = filterData(data.films, "producer", menuProducer.value);
       indexHTML.innerHTML = "";
       indexHTML.appendChild(renderItems(filterProducer));
+      stadistics.innerHTML = computeStat(filterProducer);
       accessInfo();
       ascendent.checked = false;
       descendent.checked = false;
@@ -54,6 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
       filterDate = filterData(data.films, "release_date", menuDate.value);
       indexHTML.innerHTML = "";
       indexHTML.appendChild(renderItems(filterDate));
+      stadistics.innerHTML = computeStat(filterDate);
       accessInfo();
       ascendent.checked = false;
       descendent.checked = false;
@@ -64,6 +71,7 @@ window.addEventListener("DOMContentLoaded", () => {
       filterRtScore = filterData(data.films, "rt_score", menuRtScore.value);
       indexHTML.innerHTML = "";
       indexHTML.appendChild(renderItems(filterRtScore));
+      stadistics.innerHTML = computeStat(filterRtScore);
       accessInfo();
       ascendent.checked = false;
       descendent.checked = false;
@@ -76,14 +84,15 @@ window.addEventListener("DOMContentLoaded", () => {
       ascendent.checked = false;
       descendent.checked = false;
       indexHTML.appendChild(renderItems(data.films));
+      stadistics.innerHTML = computeStat(data.films);
       menuDirector.innerHTML = createOptions(data, "director");
       menuProducer.innerHTML = createOptions(data, "producer");
       menuDate.innerHTML = createOptions(data, "release_date");
       menuRtScore.innerHTML = createOptions(data, "rt_score");
-      filterDirector="";
-      filterProducer="";
-      filterDate="";
-      filterRtScore="";
+      filterDirector = "";
+      filterProducer = "";
+      filterDate = "";
+      filterRtScore = "";
       accessInfo();
     });
     //------------------------imprimir ascendente/descendente-------------------------------------------
@@ -105,7 +114,7 @@ window.addEventListener("DOMContentLoaded", () => {
         indexHTML.innerHTML = "";
         indexHTML.appendChild(renderItems(ascendentData));
         accessInfo();
-        console.log(ascendentData);
+        
       }
     });
 
@@ -127,12 +136,9 @@ window.addEventListener("DOMContentLoaded", () => {
         indexHTML.innerHTML = "";
         indexHTML.appendChild(renderItems(descendentData));
         accessInfo();
+        
       }
     });
-
-    //------------------------Imprimir estdísticas-------------------------------------------
-
-    stadistics.innerHTML = computeStat(data.films);
   }
 
   //------------------------imprimir hoja HTML info-------------------------------------------
