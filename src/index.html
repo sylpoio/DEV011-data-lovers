@@ -11,34 +11,47 @@
       <h1>Studios Ghibli</h1>
     </header>
 
-    <main>
-      <h2>Filter options</h2>
-      <label for="director">Director</label>
-      <select name="director" id="director"></select>
-      <label for="producer">Producer</label>
-      <select name="producer" id="producer"></select>
-      <label for="release_date">Release Date</label>
-      <select name="release_date" id="release_date"></select>
-      <label for="rt_score">Rating score</label>
-      <select name="rt_score" id="rt_score"></select>
-
-      <input type="radio" id="ascendent" value="asc" name="sort-order" />
-      <label for="ascendent">a-z</label>
-      <input type="radio" id="descendent" value="desc" name="sort-order" />
-      <label for="descendent">z-a</label>
-
-      <label for="button-clear"></label>
-      <button data-testid="button-clear" id="button-clear">
-        Limpiar filtros
-      </button>
-
-      <span id="stadistics">Total de películas: </span>
-
-      <div itemscope itemtype="films" id="root"></div>
-    </main>
+<main>
+  <div class="despegable">
+      <ul class="menu">
+        <li class="menuPrincipal">Filters
+          <ul>
+            <li>
+              <label for="director">Director: <select name="director" id="director"></select></label>
+            </li>
+            <li>
+              <label for="producer">Producer: <select name="producer" id="producer"></select></label>
+            </li>
+            <li>
+              <label for="release_date">Release Date: <select name="release_date" id="release_date"></select></label>
+            </li>
+            <li>
+              <label for="rt_score">Rating score: <select name="rt_score" id="rt_score"></select></label>
+            </li>
+          </ul>
+        </li>
+        <li class="menuPrincipal2">|Order by title 
+          <ul>
+            <li>
+              <label for="ascendent">a-z<input type="radio" id="ascendent" value="asc" name="sort-order" /></label>
+            </li>
+            <li>
+              <label for="descendent">z-a<input type="radio" id="descendent" value="desc" name="sort-order" /></label>
+            </li>
+          </ul>
+        </li>
+      <li class="menuPrincipal3">
+        <label for="button-clear"><button data-testid="button-clear" id="button-clear">Clean filters</button></label>
+      </li>     
+    </ul>
+  </div>
+  <div>
+    <span id="stadisticsTxt">FILMS</span><br>
+    <span id="stadistics">FILMS</span>
+  </div>
+    <div itemscope itemtype="films" id="root"></div>
+  </main>
     <footer>Desarrollado por Sara Ramírez y Sylvia Gómez</footer>
-
   <script src="main.js" type="module"></script>
 </body>
-
 </html>
