@@ -8,7 +8,7 @@ export const filterData = (data, filterBy, value) => {
 
 //------------------------Sort by alphabetic order-------------------------------------------
 export const sortData = (data, sortBy, sortOrder) => {
-  const copiedData = [...data]
+  const copiedData = [...data];
   const sortedData = copiedData.sort((a, b) => {
     if (a[sortBy] < b[sortBy]) {
       return sortOrder === "asc" ? -1 : 1;
@@ -24,8 +24,6 @@ export const sortData = (data, sortBy, sortOrder) => {
 
 export const computeStat = (data) => {
   //const dataNum=data.length
-  const sum = data.reduce((a, b, c) => 1+ c, 0);
-  console.log("Resultado: ", sum);
-
+  const sum = data.reduce((a, b, c) => 1 + c, 0);
   return sum;
 };
