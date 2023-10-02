@@ -11,7 +11,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1px;
-  height: 30vh;
+  height: 25vh;
   width: 100%;
 }
 
@@ -20,8 +20,7 @@ h1 {
   text-align: left;
   color: aliceblue;
   font-size: 5vw;
-  padding: 2.5%;
-  margin: 10px;
+  margin-top: 25px;
 }
 
 footer {
@@ -120,3 +119,105 @@ img {
   height: 5rem;
   text-align: left;
 }
+
+/*+++++++++++++++++++++++++++ stadistc ++++++++++++++++++++ */
+#stadistics{
+font-family: "std";
+text-align: left;
+color: aliceblue;
+font-size: 3vw;
+margin-left: 10%;
+}
+#stadisticsTxt{
+  font-family: "std";
+  text-align: left;
+  color: aliceblue;
+  font-size: 1.5vw;
+  margin-left: 12%;
+  }
+/*+++++++++++++++++++++++++++ menu de select ++++++++++++++++++++ */
+  /* Menu */
+.despegable{
+  align-items: center;
+}
+  .menu {	
+    width: 530px;
+    height: 40px;
+    background: #2d89b776;
+    border-radius: 5px;
+  }
+  .menu li {
+    position: relative;
+    list-style: none;
+    float: left;
+    color: aliceblue;
+    font-size: 20px;
+  }
+  .menu li label {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #f3f3f3;
+  }
+
+  /* Sub Menu */
+  
+  .menu ul {
+    z-index: 2;
+    position: absolute;
+    top: 40px;
+    background: #2d89b776;
+  }
+  .menu ul li {
+    z-index: 2;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: height .25s ease .1s;
+  }
+  .menu li:hover > ul { opacity: 1; }
+  .menu li:hover > ul li {
+    height: 36px;
+    overflow: visible;
+    padding: 0;
+  }
+  
+  .menu ul li label {
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #3d8fce91;
+  }
+  
+  .menu ul li:last-child label { border: none; }
+  .menuPrincipal{
+    width: 50%;
+  }
+  .menuPrincipal2{
+    width: 30%;
+  }
+
+  #button-clear{
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    background: linear-gradient(-50deg, #338aff, #3cf0c5);
+    position: absolute;
+
+  }
+  
+  button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+      inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+  }
+
+  select {
+    font-size: .9em;
+    height: 2em;
+    color:#0b0bfe;
+    border:none;
+    /* appearance:none; */
+  }
