@@ -185,6 +185,6 @@ describe("sortData", () => {
 describe("computeStat", () => {
   const data = fakeData;
   it("debe sumar el index de los objetos y agregar 1, para dar el total de películas mostradas", () => {
-    expect(computeStat(data)).toEqual(3);
+    expect(computeStat(data)).toBe("3");
   });
 });
