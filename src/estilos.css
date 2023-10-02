@@ -6,16 +6,24 @@ body {
   margin: 0;
 }
 header {
-  background-image: url("images/header3.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 200px;
+  height: 60px;
   width: 100%;
   font-family:"std";
   color: aliceblue;
-  text-align: left;
   padding: .1%;
+  background-color: blue;
+}
+.titulo{
   font-size: 2.5vw;
+}
+ .return{
+  width: 10%;
+  font-size: 1vw;
+  background-color: rgb(255, 255, 255);
+  text-align: right;
+}
+a:visited {
+  color: rgb(0, 17, 255);
 }
 
 footer {
@@ -25,7 +33,6 @@ footer {
   height: 4vh;
   width: 100%;
 }
-
 /*-----------------------------contenedores------------------------------------------*/
 
 #container2 {
