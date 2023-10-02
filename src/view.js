@@ -37,9 +37,10 @@ export const renderItems2 = () => {
   let peopleHTML = "";
   const arrPeople = info.people;
 
+const description =``;
+
   const ul2 = document.createElement("ul");
   ul2.id = "container2";
-
   //console.log(arrPeople);
   arrPeople.forEach((people) => {
     peopleHTML += `

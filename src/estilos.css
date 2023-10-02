@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 header {
-  height: 60px;
+  height: 10%;
   width: 100%;
   font-family:"std";
   color: aliceblue;
@@ -19,11 +19,10 @@ header {
  .return{
   width: 10%;
   font-size: 1vw;
-  background-color: rgb(255, 255, 255);
-  text-align: right;
+  margin-left: 80%;
 }
 a:visited {
-  color: rgb(0, 17, 255);
+  color: rgb(255, 255, 255);
 }
 
 footer {
@@ -33,6 +32,9 @@ footer {
   height: 4vh;
   width: 100%;
 }
+/*-----------------------------DESCEPCION------------------------------------------*/
+
+
 /*-----------------------------contenedores------------------------------------------*/
 
 #container2 {
