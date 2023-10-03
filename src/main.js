@@ -1,5 +1,12 @@
 import { filterData, sortData, computeStat } from "./dataFunctions.js";
-import { renderItems, renderItems2, createOptions, description, renderItems3, renderItems4 } from "./view.js";
+import {
+  renderItems,
+  renderItems2,
+  createOptions,
+  description,
+  renderItems3,
+  renderItems4,
+} from "./view.js";
 import data from "./data/ghibli/ghibli.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -18,13 +25,13 @@ window.addEventListener("DOMContentLoaded", () => {
   if (currentPageURL.includes("info")) {
     const indexCon = document.querySelector("#secondSheetContent");
     indexCon.innerHTML = description();
-    
+
     const cardPeople = document.querySelector("#people");
-    const cardLocation = document.querySelector("#location");       
+    const cardLocation = document.querySelector("#location");
     const cardVehicles = document.querySelector("#vehicles");
 
-   cardPeople.addEventListener("click", () => {
-    indexHTML.innerHTML = "";
+    cardPeople.addEventListener("click", () => {
+      indexHTML.innerHTML = "";
       indexHTML.appendChild(renderItems2());
     });
     cardLocation.addEventListener("click", () => {
@@ -57,7 +64,6 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterDirector));
       stadistics.innerHTML = computeStat(filterDirector);
       accessInfo();
-      filterAndRenderData();
     });
 
     let filterProducer;
@@ -67,7 +73,6 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterProducer));
       stadistics.innerHTML = computeStat(filterProducer);
       accessInfo();
-      filterAndRenderData();
     });
 
     let filterDate;
@@ -77,7 +82,6 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterDate));
       stadistics.innerHTML = computeStat(filterDate);
       accessInfo();
-      filterAndRenderData();
     });
 
     let filterRtScore;
@@ -87,7 +91,6 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterRtScore));
       stadistics.innerHTML = computeStat(filterRtScore);
       accessInfo();
-      filterAndRenderData();
     });
 
     //------------------------Botón limpiar-------------------------------------------
@@ -109,14 +112,8 @@ window.addEventListener("DOMContentLoaded", () => {
       accessInfo();
     });
     //------------------------imprimir ascendente/descendente-------------------------------------------
-    
-    let orderData;
-    alphabeticOrder.addEventListener("change", () => {
-      filterAndRenderData();
-    });
 
-    //------------------------función filtros y ordenado junto-------------------------------------------
-    const filterAndRenderData= () => {
+    alphabeticOrder.addEventListener("change", () => {
       let dataToSort = null;
       if (filterDirector) {
         dataToSort = filterDirector;
@@ -129,12 +126,13 @@ window.addEventListener("DOMContentLoaded", () => {
       } else {
         dataToSort = data.films;
       }
-      orderData = sortData(dataToSort, "title", alphabeticOrder.value);
+      const orderData = sortData(dataToSort, "title", alphabeticOrder.value);
       indexHTML.innerHTML = "";
       indexHTML.appendChild(renderItems(orderData));
       stadistics.innerHTML = computeStat(orderData);
+      alphabeticOrder.selectedIndex = 0;
       accessInfo();
-    }
+    });
   }
 
   //------------------------imprimir hoja HTML info-------------------------------------------
