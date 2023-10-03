@@ -50,21 +50,20 @@ export const createOptions = (data, option) => {
   return optionsNull + options;
 };
 //------------------------Crear description segunda hoja-------------------------------------------
-export const description = () => {
-  const infoComplete = JSON.parse(
-    localStorage.getItem("movieInfoLocalStorage")
-  );
-
-  const infoDescription = `<div class="movieDescription">
+export const description = () =>{
+  const infoComplete = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
+ 
+  const infoDescription = 
+     `<div class="movieDescription">
        <img id="poster" src=${infoComplete.poster} alt="${infoComplete.title} Poster"/>
         <div id="infoMovie">
           <p>${infoComplete.description}</p><br><br>
           <button id="people">PEOPLE </button> <button id="location">LOCATION </button> <button id="vehicles">VEHICLES </button>
           </div>
       </div>`;
-  //console.log(infoDescription);
-  return infoDescription;
-};
+     //console.log(infoDescription);
+     return infoDescription;
+}
 
 export const renderItems2 = () => {
   const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
@@ -73,29 +72,28 @@ export const renderItems2 = () => {
   let peopleHTML = "";
   const arrPeople = info.people;
 
+const description =``;
+
   const ul2 = document.createElement("ul");
   ul2.id = "container2";
-
   //console.log(arrPeople);
   arrPeople.forEach((people) => {
     peopleHTML += `
      <li class="card2">
       <p class="peopleName">${people.name}</p>
+      <p class="specie">Specie: ${people.specie}</p>
        <img src="images/tarjeta2.jpg" alt="informacion"/>
        <img class="imgSmall" src=${people.img} alt="${people.name} Poster"/>
-       <table border=1>
+       <table>
        <tr>
          <td>Gender: ${people.gender}</td>
-         <td>Age: ${people.age} </td>
+         <td class="age">Age: ${people.age} </td>
        </tr>
        <tr>
-         <td>Eye color: ${people.eye_color}</td>
+         <td colspan="2">Eye color: ${people.eye_color}</td>
         </tr>
         <tr>
-         <td>Hair color: ${people.hair_color}</td>
-       </tr>
-       <tr>
-         <td>Specie: ${people.specie}</td>
+         <td colspan="2">Hair color: ${people.hair_color}</td>
        </tr>
      </table>
      </li> `;
@@ -106,9 +104,7 @@ export const renderItems2 = () => {
 };
 
 export const renderItems3 = () => {
-  const infoLocation = JSON.parse(
-    localStorage.getItem("movieInfoLocalStorage")
-  );
+  const infoLocation = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
   //console.log(info);
   //identificacmos los datos de las peliculas
   let locationsHTML = "";
@@ -120,8 +116,20 @@ export const renderItems3 = () => {
   arrLocations.forEach((location) => {
     locationsHTML += `
      <li class="card2">
+     <p class="peopleName">${location.name}</p>
        <img src="images/tarjeta2.jpg" alt="informacion"/>
        <img class="imgSmall" src=${location.img} alt="${location.name} Poster"/>
+       <table>
+       <tr>
+         <td>Climate: ${location.climate}</td>
+       </tr>
+       <tr>
+         <td>Terrain: ${location.terrain}</td>
+        </tr>
+        <tr>
+         <td>Surface water: ${location.surface_water}</td>
+       </tr>
+     </table>
      </li> `;
   });
   //console.log(tHTML);
@@ -130,9 +138,7 @@ export const renderItems3 = () => {
 };
 
 export const renderItems4 = () => {
-  const infoVehicles = JSON.parse(
-    localStorage.getItem("movieInfoLocalStorage")
-  );
+  const infoVehicles = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
   //console.log(info);
   //identificacmos los datos de las peliculas
   let vehiclesHTML = "";
@@ -144,8 +150,10 @@ export const renderItems4 = () => {
   arrVehicles.forEach((vehicles) => {
     vehiclesHTML += `
      <li class="card2">
+     <p class="peopleName">${vehicles.name}</p>
        <img src="images/tarjeta2.jpg" alt="informacion"/>
        <img class="imgSmall" src=${vehicles.img} alt="${vehicles.name} Poster"/>
+       <p class="vehivlesDescription">${vehicles.description}</p>
      </li> `;
   });
   //console.log(tHTML);

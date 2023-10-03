@@ -1,12 +1,5 @@
 import { filterData, sortData, computeStat } from "./dataFunctions.js";
-import {
-  renderItems,
-  renderItems2,
-  createOptions,
-  description,
-  renderItems3,
-  renderItems4,
-} from "./view.js";
+import { renderItems, renderItems2, createOptions, description, renderItems3, renderItems4 } from "./view.js";
 import data from "./data/ghibli/ghibli.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -25,13 +18,13 @@ window.addEventListener("DOMContentLoaded", () => {
   if (currentPageURL.includes("info")) {
     const indexCon = document.querySelector("#secondSheetContent");
     indexCon.innerHTML = description();
-
+    
     const cardPeople = document.querySelector("#people");
-    const cardLocation = document.querySelector("#location");
+    const cardLocation = document.querySelector("#location");       
     const cardVehicles = document.querySelector("#vehicles");
 
-    cardPeople.addEventListener("click", () => {
-      indexHTML.innerHTML = "";
+   cardPeople.addEventListener("click", () => {
+    indexHTML.innerHTML = "";
       indexHTML.appendChild(renderItems2());
     });
     cardLocation.addEventListener("click", () => {
