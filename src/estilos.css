@@ -10,8 +10,8 @@ header {
   width: 100%;
   font-family:"std";
   color: aliceblue;
-  padding: .1%;
-  background-color: blue;
+  padding: 1%;
+  background-color: navy;
 }
 .titulo{
   font-size: 2.5vw;
@@ -19,7 +19,9 @@ header {
  .return{
   width: 10%;
   font-size: 1vw;
-  margin-left: 80%;
+  margin: .5% 75%;
+  z-index: 2;
+  position:absolute;
 }
 a:visited {
   color: rgb(255, 255, 255);
@@ -29,7 +31,7 @@ footer {
   background-color: navy;
   color: aquamarine;
   text-align: right;
-  height: 4vh;
+  height: 3vh;
   width: 100%;
 }
 /*-----------------------------DESCEPCION------------------------------------------*/
@@ -46,7 +48,6 @@ footer {
   object-fit: contain;
 }
 #infoMovie{
-  /* position: absolute;*/
   margin: 20px;
   font-size: 2.5vh;
   width: 73%;
@@ -68,7 +69,6 @@ footer {
   position: relative;
   padding: 0;
   height: 40vh;
-  line-height: 120px;
   text-align: center;
   margin: 20px;
 }
@@ -91,11 +91,50 @@ img {
   position:absolute;
   color: aliceblue;
   font-size: 2vh;
-  margin: -12% 10%;
+  margin: 8% 10%;
 }
 table{
   z-index: 2;
+  height: 1px;
+  width: 80%;
   position:absolute;
-  margin: -20% 10%;
   color: aliceblue;
+  margin: -38% 10%;
+}
+td{
+  text-align: left;
+}
+.age{
+  width: 45%;
+  text-align: right;
+}
+.specie{
+  z-index: 2;
+  position:absolute;
+  color: aliceblue;
+  font-size: 1.5vh;
+  margin: 18% 25%;
+  width: 100%;
+}
+.vehivlesDescription{
+  z-index: 2;
+  position:absolute;
+  color: aliceblue;
+  font-size: 1.7vh;
+  margin: -37.5% 10%;
+}
+button{
+  width: 150px;
+  height: 32px;
+  font-size: 18px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+  border: 1px solid #fbfbfb;
+  background: linear-gradient(-50deg, navy, #4173ff);
+}
+
+button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }

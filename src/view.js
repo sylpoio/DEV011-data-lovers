@@ -81,21 +81,19 @@ const description =``;
     peopleHTML += `
      <li class="card2">
       <p class="peopleName">${people.name}</p>
+      <p class="specie">Specie: ${people.specie}</p>
        <img src="images/tarjeta2.jpg" alt="informacion"/>
        <img class="imgSmall" src=${people.img} alt="${people.name} Poster"/>
-       <table border=1>
+       <table>
        <tr>
          <td>Gender: ${people.gender}</td>
-         <td>Age: ${people.age} </td>
+         <td class="age">Age: ${people.age} </td>
        </tr>
        <tr>
-         <td>Eye color: ${people.eye_color}</td>
+         <td colspan="2">Eye color: ${people.eye_color}</td>
         </tr>
         <tr>
-         <td>Hair color: ${people.hair_color}</td>
-       </tr>
-       <tr>
-         <td>Specie: ${people.specie}</td>
+         <td colspan="2">Hair color: ${people.hair_color}</td>
        </tr>
      </table>
      </li> `;
@@ -118,8 +116,20 @@ export const renderItems3 = () => {
   arrLocations.forEach((location) => {
     locationsHTML += `
      <li class="card2">
+     <p class="peopleName">${location.name}</p>
        <img src="images/tarjeta2.jpg" alt="informacion"/>
        <img class="imgSmall" src=${location.img} alt="${location.name} Poster"/>
+       <table>
+       <tr>
+         <td>Climate: ${location.climate}</td>
+       </tr>
+       <tr>
+         <td>Terrain: ${location.terrain}</td>
+        </tr>
+        <tr>
+         <td>Surface water: ${location.surface_water}</td>
+       </tr>
+     </table>
      </li> `;
   });
   //console.log(tHTML);
@@ -140,8 +150,10 @@ export const renderItems4 = () => {
   arrVehicles.forEach((vehicles) => {
     vehiclesHTML += `
      <li class="card2">
+     <p class="peopleName">${vehicles.name}</p>
        <img src="images/tarjeta2.jpg" alt="informacion"/>
        <img class="imgSmall" src=${vehicles.img} alt="${vehicles.name} Poster"/>
+       <p class="vehivlesDescription">${vehicles.description}</p>
      </li> `;
   });
   //console.log(tHTML);
