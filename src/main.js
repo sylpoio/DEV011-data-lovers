@@ -100,43 +100,42 @@ window.addEventListener("DOMContentLoaded", () => {
       menuProducer.innerHTML = createOptions(data, "producer");
       menuDate.innerHTML = createOptions(data, "release_date");
       menuRtScore.innerHTML = createOptions(data, "rt_score");
-      alphabeticOrder.selectedIndex=0;
-      filterDirector="";
-      filterProducer="";
+      alphabeticOrder.selectedIndex = 0;
+      filterDirector = "";
+      filterProducer = "";
       filterDate = "";
       filterRtScore = "";
-      orderData="";
+      orderData = "";
       accessInfo();
     });
     //------------------------imprimir ascendente/descendente-------------------------------------------
+    
     let orderData;
     alphabeticOrder.addEventListener("change", () => {
-       filterAndRenderData();
-      });
+      filterAndRenderData();
+    });
 
-  //------------------------función filtros y ordenado junto-------------------------------------------
-  function filterAndRenderData() {
-    let dataToSort = null;
-     if (filterDirector) {
-      dataToSort = filterDirector;
-    } else if (filterProducer) {
-      dataToSort = filterProducer;
-    } else if (filterDate) {
-      dataToSort = filterDate;
-    } else if (filterRtScore) {
-      dataToSort = filterRtScore;
-    } else {
-      dataToSort = data.films;
+    //------------------------función filtros y ordenado junto-------------------------------------------
+    const filterAndRenderData= () => {
+      let dataToSort = null;
+      if (filterDirector) {
+        dataToSort = filterDirector;
+      } else if (filterProducer) {
+        dataToSort = filterProducer;
+      } else if (filterDate) {
+        dataToSort = filterDate;
+      } else if (filterRtScore) {
+        dataToSort = filterRtScore;
+      } else {
+        dataToSort = data.films;
+      }
+      orderData = sortData(dataToSort, "title", alphabeticOrder.value);
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems(orderData));
+      stadistics.innerHTML = computeStat(orderData);
+      accessInfo();
     }
-    orderData = sortData(dataToSort, "title", alphabeticOrder.value);
-    indexHTML.innerHTML = "";
-    indexHTML.appendChild(renderItems(orderData));
-    stadistics.innerHTML = computeStat(orderData);
-    accessInfo();
   }
-
-
-    }
 
   //------------------------imprimir hoja HTML info-------------------------------------------
 

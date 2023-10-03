@@ -25,5 +25,5 @@ export const sortData = (data, sortBy, sortOrder) => {
 export const computeStat = (data) => {
   //const dataNum=data.length
   const sum = data.reduce((a, b, c) => 1 + c, 0);
-  return sum;
+  return parseInt(sum);
 };
