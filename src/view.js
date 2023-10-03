@@ -30,30 +30,6 @@ export const renderItems = (data) => {
   return ul;
 };
 
-export const renderItems2 = () => {
-  const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
-  //console.log(info);
-  //identificacmos los datos de las peliculas
-  let peopleHTML = "";
-  const arrPeople = info.people;
-
-const description =``;
-
-  const ul2 = document.createElement("ul");
-  ul2.id = "container2";
-  //console.log(arrPeople);
-  arrPeople.forEach((people) => {
-    peopleHTML += `
-     <li class="card2">
-       <img src="images/tarjeta2.jpg" alt="informacion"/>
-       <img class="imgSmall" src=${people.img} alt="${people.name} Poster"/>
-     </li> `;
-  });
-  //console.log(tHTML);
-  ul2.innerHTML = peopleHTML;
-  return ul2;
-};
-
 //------------------------Crear options-------------------------------------------
 
 export const createOptions = (data, option) => {
@@ -72,4 +48,103 @@ export const createOptions = (data, option) => {
   });
   //console.log(options);
   return optionsNull + options;
+};
+//------------------------Crear description segunda hoja-------------------------------------------
+export const description = () =>{
+  const infoComplete = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
+ 
+  const infoDescription = 
+     `<div class="movieDescription">
+       <img id="poster" src=${infoComplete.poster} alt="${infoComplete.title} Poster"/>
+        <div id="infoMovie">
+          <p>${infoComplete.description}</p><br><br>
+          <button id="people">PEOPLE </button> <button id="location">LOCATION </button> <button id="vehicles">VEHICLES </button>
+          </div>
+      </div>`;
+     //console.log(infoDescription);
+     return infoDescription;
+}
+
+export const renderItems2 = () => {
+  const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
+  //console.log(info);
+  //identificacmos los datos de las peliculas
+  let peopleHTML = "";
+  const arrPeople = info.people;
+
+const description =``;
+
+  const ul2 = document.createElement("ul");
+  ul2.id = "container2";
+  //console.log(arrPeople);
+  arrPeople.forEach((people) => {
+    peopleHTML += `
+     <li class="card2">
+      <p class="peopleName">${people.name}</p>
+       <img src="images/tarjeta2.jpg" alt="informacion"/>
+       <img class="imgSmall" src=${people.img} alt="${people.name} Poster"/>
+       <table border=1>
+       <tr>
+         <td>Gender: ${people.gender}</td>
+         <td>Age: ${people.age} </td>
+       </tr>
+       <tr>
+         <td>Eye color: ${people.eye_color}</td>
+        </tr>
+        <tr>
+         <td>Hair color: ${people.hair_color}</td>
+       </tr>
+       <tr>
+         <td>Specie: ${people.specie}</td>
+       </tr>
+     </table>
+     </li> `;
+  });
+  //console.log(tHTML);
+  ul2.innerHTML = peopleHTML;
+  return ul2;
+};
+
+export const renderItems3 = () => {
+  const infoLocation = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
+  //console.log(info);
+  //identificacmos los datos de las peliculas
+  let locationsHTML = "";
+  const arrLocations = infoLocation.locations;
+
+  const ul3 = document.createElement("ul");
+  ul3.id = "container2";
+  //console.log(arrLocations);
+  arrLocations.forEach((location) => {
+    locationsHTML += `
+     <li class="card2">
+       <img src="images/tarjeta2.jpg" alt="informacion"/>
+       <img class="imgSmall" src=${location.img} alt="${location.name} Poster"/>
+     </li> `;
+  });
+  //console.log(tHTML);
+  ul3.innerHTML = locationsHTML;
+  return ul3;
+};
+
+export const renderItems4 = () => {
+  const infoVehicles = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
+  //console.log(info);
+  //identificacmos los datos de las peliculas
+  let vehiclesHTML = "";
+  const arrVehicles = infoVehicles.vehicles;
+
+  const ul4 = document.createElement("ul");
+  ul4.id = "container2";
+  //console.log(arrVehicles);
+  arrVehicles.forEach((vehicles) => {
+    vehiclesHTML += `
+     <li class="card2">
+       <img src="images/tarjeta2.jpg" alt="informacion"/>
+       <img class="imgSmall" src=${vehicles.img} alt="${vehicles.name} Poster"/>
+     </li> `;
+  });
+  //console.log(tHTML);
+  ul4.innerHTML = vehiclesHTML;
+  return ul4;
 };

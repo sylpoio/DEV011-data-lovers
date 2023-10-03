@@ -1,6 +1,6 @@
 body {
   background-image: url("images/background.jpg");
-  background-size: auto;
+  background-size: cover;
   background-repeat: no-repeat;
   padding: 0;
   margin: 0;
@@ -33,17 +33,36 @@ footer {
   width: 100%;
 }
 /*-----------------------------DESCEPCION------------------------------------------*/
-
+.movieDescription{ 
+  height: 80%;
+  width: 100%;
+  object-fit: contain;
+  display: flex;
+  flex-flow: row wrap;
+}
+#poster{
+  width: 15%;
+  padding: 1%;
+  object-fit: contain;
+}
+#infoMovie{
+  /* position: absolute;*/
+  margin: 20px;
+  font-size: 2.5vh;
+  width: 73%;
+  object-fit: contain;
+  color: rgb(24, 0, 240);
+  background-color: rgba(0, 255, 255, 0.301);
+  padding: 2%;
+  text-align: justify; 
+}
 
 /*-----------------------------contenedores------------------------------------------*/
-
 #container2 {
   display: flex;
   flex-flow: row wrap;
-  padding: 20px;
   justify-content: center;
 }
-
 .card2 {
   list-style-type: none;
   position: relative;
@@ -65,4 +84,18 @@ img {
   object-fit: contain;
   top: 18.2%;
   left: 15%;
+}
+
+.peopleName{
+  z-index: 2;
+  position:absolute;
+  color: aliceblue;
+  font-size: 2vh;
+  margin: -12% 10%;
+}
+table{
+  z-index: 2;
+  position:absolute;
+  margin: -20% 10%;
+  color: aliceblue;
 }
