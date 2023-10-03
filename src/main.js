@@ -1,5 +1,5 @@
 import { filterData, sortData, computeStat } from "./dataFunctions.js";
-import { renderItems, renderItems2, createOptions } from "./view.js";
+import { renderItems, renderItems2, createOptions, description, renderItems3, renderItems4 } from "./view.js";
 import data from "./data/ghibli/ghibli.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -16,7 +16,25 @@ window.addEventListener("DOMContentLoaded", () => {
   //------------------------llamar Characters-------------------------------------------
 
   if (currentPageURL.includes("info")) {
-    indexHTML.appendChild(renderItems2()); // Llama a la función para la página de información
+    const indexCon = document.querySelector("#secondSheetContent");
+    indexCon.innerHTML = description();
+    
+    const cardPeople = document.querySelector("#people");
+    const cardLocation = document.querySelector("#location");       
+    const cardVehicles = document.querySelector("#vehicles");
+
+   cardPeople.addEventListener("click", () => {
+    indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems2());
+    });
+    cardLocation.addEventListener("click", () => {
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems3());
+    });
+    cardVehicles.addEventListener("click", () => {
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems4());
+    });
   } else {
     indexHTML.appendChild(renderItems(data.films)); // Llama a la función para la página principal (o cualquier otra página)
     accessInfo();

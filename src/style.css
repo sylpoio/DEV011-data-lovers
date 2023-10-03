@@ -5,7 +5,6 @@ body {
   padding: 0;
   margin: 0;
 }
-
 header {
   background-image: url("images/header3.png");
   background-size: cover;
@@ -14,7 +13,6 @@ header {
   height: 25vh;
   width: 100%;
 }
-
 h1 {
   font-family: "std";
   text-align: left;
@@ -95,56 +93,14 @@ img {
 .info {
   text-decoration: underline;
 }
-/*+++++++++++++++++++++++++++ estilos segundas tarejtas ++++++++++++++++++++ */
-.name {
-  position: relative;
-  margin-top: -11.1vw;
-  left: auto;
-  font-size: 1.3vw;
-}
-
-.imgSmall {
-  position: relative;
-  height: 12vw;
-  width: 7.5vw;
-  top: 2.6vw;
-  left: 4vw;
-}
-
-.description {
-  position: relative;
-  margin-top: 0.6rem;
-  left: 3rem;
-  font-size: small;
-  height: 5rem;
-  text-align: left;
-}
-
-/*+++++++++++++++++++++++++++ stadistc ++++++++++++++++++++ */
-#stadistics{
-font-family: "std";
-text-align: left;
-color: aliceblue;
-font-size: 3vw;
-margin-left: 10%;
-}
-#stadisticsTxt{
-  font-family: "std";
-  text-align: left;
-  color: aliceblue;
-  font-size: 1.5vw;
-  margin-left: 12%;
-  }
 /*+++++++++++++++++++++++++++ menu de select ++++++++++++++++++++ */
   /* Menu */
-.despegable{
-  align-items: center;
-}
   .menu {	
-    width: 530px;
+    width: 720px;
     height: 40px;
-    background: #2d89b776;
+    background: #0a21ecfe;
     border-radius: 5px;
+    margin: 0 auto;
   }
   .menu li {
     position: relative;
@@ -152,12 +108,15 @@ margin-left: 10%;
     float: left;
     color: aliceblue;
     font-size: 20px;
+    padding-top: 1%;
   }
+  
   .menu li label {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
     font-size: 13px;
     color: #f3f3f3;
+    
   }
 
   /* Sub Menu */
@@ -166,7 +125,7 @@ margin-left: 10%;
     z-index: 2;
     position: absolute;
     top: 40px;
-    background: #2d89b776;
+    background: #0011ff76;
   }
   .menu ul li {
     z-index: 2;
@@ -185,28 +144,36 @@ margin-left: 10%;
   .menu ul li label {
     margin: 0;
     border: none;
-    border-bottom: 1px solid #3d8fce91;
+    border-bottom: 1px solid #0400f591;
   }
   
   .menu ul li:last-child label { border: none; }
   .menuPrincipal{
-    width: 50%;
+    width: 35%;
   }
   .menuPrincipal2{
-    width: 30%;
+    width: 20%;
+  }
+  .totalFilms{
+    width: 15%;
+    text-align: right;
+    }
+  #stadistics{
+    font-size: 2em;
+    background-color: #0b0bfe;
+    border-radius: 50%;
+    padding:50%;
   }
 
   #button-clear{
     width: 150px;
-    height: 40px;
+    height: 32px;
     font-size: 18px;
     text-align: center;
     color: rgba(255, 255, 255, 0.9);
     border-radius: 50px;
-    border: 1px solid #ccc;
-    background: linear-gradient(-50deg, #338aff, #3cf0c5);
-    position: absolute;
-
+    border: 1px solid #0024f2;
+    background: linear-gradient(-50deg, #1a3adc, #3cc9f0);
   }
   
   button:active {
