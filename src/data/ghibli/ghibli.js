@@ -56,7 +56,7 @@ export default {
           "name": "Uncle Pom",
           "img": "https://static.wikia.nocookie.net/studio-ghibli/images/d/de/Uncle_Pom.png",
           "gender": "Male",
-          "age": "Unspecified/Elderly",
+          "age": "Elderly",
           "eye_color": "Black",
           "hair_color": "White",
           "specie": "Human"
@@ -66,7 +66,7 @@ export default {
           "name": "General Muoro",
           "img": "https://static.wikia.nocookie.net/studio-ghibli/images/1/12/Muoro.jpg",
           "gender": "Male",
-          "age": "Unspecified/Adult",
+          "age": "Adult",
           "eye_color": "Black",
           "hair_color": "None",
           "specie": "Human"
@@ -76,7 +76,7 @@ export default {
           "name": "Duffi",
           "img": "https://static.wikia.nocookie.net/studio-ghibli/images/0/0a/Duffi.png",
           "gender": "Male",
-          "age": "Unspecified/Adult",
+          "age": "Adult",
           "eye_color": "Dark brown",
           "hair_color": "Dark brown",
           "specie": "Human"
@@ -96,7 +96,7 @@ export default {
           "name": "Charles",
           "img": "https://static.wikia.nocookie.net/studio-ghibli/images/f/f0/Charlie.jpg",
           "gender": "Male",
-          "age": "Unspecified/Adult",
+          "age": "Adult",
           "eye_color": "Dark brown",
           "hair_color": "Light brown",
           "specie": "Human"
@@ -106,7 +106,7 @@ export default {
           "name": "Henri",
           "img": "https://static.wikia.nocookie.net/studio-ghibli/images/1/15/Henri.jpg",
           "gender": "Male",
-          "age": "Unspecified/Adult",
+          "age": "Adult",
           "eye_color": "Dark brown",
           "hair_color": "Reddish brown",
           "specie": "Human"
@@ -116,7 +116,7 @@ export default {
           "name": "Motro",
           "img": "https://static.wikia.nocookie.net/studio-ghibli/images/1/17/Eggman_laputa.jpg",
           "gender": "Male",
-          "age": "Unspecified/Adult",
+          "age": "Adult",
           "eye_color": "Dark brown",
           "hair_color": "None",
           "specie": "Human"
