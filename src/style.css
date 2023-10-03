@@ -5,23 +5,20 @@ body {
   padding: 0;
   margin: 0;
 }
-
 header {
   background-image: url("images/header3.png");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1px;
-  height: 30vh;
+  height: 25vh;
   width: 100%;
 }
-
 h1 {
   font-family: "std";
   text-align: left;
   color: aliceblue;
   font-size: 5vw;
-  padding: 2.5%;
-  margin: 10px;
+  margin-top: 25px;
 }
 
 footer {
@@ -39,42 +36,25 @@ footer {
 }
 #container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  align-content: stretch;
-  gap: 20px;
-  padding: 50px;
+  flex-flow: row wrap;
+  padding: 20px;
+  justify-content: center;
 }
 /*++++++++++++++++++++ tarejtas +++++++++++++++ */
 .card {
-  /*flex-basis: calc(20% - 20px);*/
   list-style-type: none;
   position: relative;
-  width: 15vw;
+  padding: 0;
   height: 40vh;
-  justify-content: space-around;
   text-align: center;
-  cursor: pointer;
-  overflow: hidden;
-  /*background-color: rgb(0, 0, 128);*/
+  margin: 20px;
 }
 .front,
 .overlay {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  position: absolute;
-  text-align: center;
-  color: aliceblue;
   font-size: 0.2em;
-  display: block;
-  /*transform: translate(-50%, -50%);
-  background-color: rgb(128, 0, 0);*/
 }
-/*.back{
-  background-color: rgb(128, 0, 0);
-}*/
 /*++++++++++++++++++++ imagenes principales de las tarejtas +++++++++++++++ */
 img {
   width: 100%;
@@ -83,35 +63,28 @@ img {
 }
 /*++++++++++++++++++++ overlay +++++++++++++++ */
 .overlay {
-  background: rgba(
-    7,
-    10,
-    173,
-    0.521
-  ); /* Fondo semitransparente para el texto */
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  background: rgba(7,10,173,0.521); /* Fondo semitransparente para el texto */
   justify-content: center;
   align-items: center;
   opacity: 0; /*Inicialmente oculto */
   transition: opacity 0.3s; /* Transición suave para mostrar/ocultar */
+  color: aliceblue;
+  top: 0%;
 }
 
 .back p {
   font-family: "std";
-  font-size: 1.2vw;
+  font-size: 20px;
   text-align: left;
-  padding: 5%;
-  margin-top: -14px;
-  margin-bottom: -14px;
 }
 .back h2 {
-  font-size: 2vw;
+  font-size: 40px;
   font-family: "std";
 }
 
 .card:hover .image {
-  opacity: 0;
+  opacity: 20%;
 }
 
 .card:hover .overlay {
@@ -120,27 +93,98 @@ img {
 .info {
   text-decoration: underline;
 }
-/*+++++++++++++++++++++++++++ estilos segundas tarejtas ++++++++++++++++++++ */
-.name {
-  position: relative;
-  margin-top: -11.1vw;
-  left: auto;
-  font-size: 1.3vw;
-}
+/*+++++++++++++++++++++++++++ menu de select ++++++++++++++++++++ */
+  /* Menu */
+  .menu {	
+    width: 720px;
+    height: 40px;
+    background: #0a21ecfe;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+  .menu li {
+    position: relative;
+    list-style: none;
+    float: left;
+    color: aliceblue;
+    font-size: 20px;
+    padding-top: 1%;
+  }
+  
+  .menu li label {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #f3f3f3;
+    
+  }
 
-.imgSmall {
-  position: relative;
-  height: 12vw;
-  width: 7.5vw;
-  top: 2.6vw;
-  left: 4vw;
-}
+  /* Sub Menu */
+  
+  .menu ul {
+    z-index: 2;
+    position: absolute;
+    top: 40px;
+    background: #0011ff76;
+  }
+  .menu ul li {
+    z-index: 2;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: height .25s ease .1s;
+  }
+  .menu li:hover > ul { opacity: 1; }
+  .menu li:hover > ul li {
+    height: 36px;
+    overflow: visible;
+    padding: 0;
+  }
+  
+  .menu ul li label {
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #0400f591;
+  }
+  
+  .menu ul li:last-child label { border: none; }
+  .menuPrincipal{
+    width: 35%;
+  }
+  .menuPrincipal2{
+    width: 20%;
+  }
+  .totalFilms{
+    width: 15%;
+    text-align: right;
+    }
+  #stadistics{
+    font-size: 2em;
+    background-color: #0b0bfe;
+    border-radius: 50%;
+    padding:50%;
+  }
 
-.description {
-  position: relative;
-  margin-top: 0.6rem;
-  left: 3rem;
-  font-size: small;
-  height: 5rem;
-  text-align: left;
-}
+  #button-clear{
+    width: 150px;
+    height: 32px;
+    font-size: 18px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    border: 1px solid #0024f2;
+    background: linear-gradient(-50deg, #1a3adc, #3cc9f0);
+  }
+  
+  button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+      inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+  }
+
+  select {
+    font-size: .9em;
+    height: 2em;
+    color:#0b0bfe;
+    border:none;
+    /* appearance:none; */
+  }

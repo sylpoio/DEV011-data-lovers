@@ -1,26 +1,55 @@
-import { filterData, sortData,  } from "./dataFunctions.js";
-import { renderItems, renderItems2, createOptions } from "./view.js";
+import { filterData, sortData, computeStat } from "./dataFunctions.js";
+import {
+  renderItems,
+  renderItems2,
+  createOptions,
+  description,
+  renderItems3,
+  renderItems4,
+} from "./view.js";
 import data from "./data/ghibli/ghibli.js";
 
-//window.addEventListener("DOMContentLoaded", () => {
-  let indexHTML = document.querySelector("#root");
+window.addEventListener("DOMContentLoaded", () => {
+  const indexHTML = document.querySelector("#root");
   const menuDirector = document.querySelector("#director");
   const menuProducer = document.querySelector("#producer");
   const menuDate = document.querySelector("#release_date");
   const menuRtScore = document.querySelector("#rt_score");
   const currentPageURL = window.location.href;
-  const ascendent = document.querySelector("#ascendent");
-  const descendent = document.querySelector("#descendent");
-  const cleanButton=document.querySelector("#button-clear")
+  const alphabeticOrder = document.querySelector("#alphabetic-order");
+  const cleanButton = document.querySelector("#button-clear");
+  const stadistics = document.querySelector("#stadistics");
 
   //------------------------llamar Characters-------------------------------------------
 
   if (currentPageURL.includes("info")) {
-    indexHTML.appendChild(renderItems2()); // Llama a la función para la página de información
+    const indexCon = document.querySelector("#secondSheetContent");
+    indexCon.innerHTML = description();
+
+    const cardPeople = document.querySelector("#people");
+    const cardLocation = document.querySelector("#location");
+    const cardVehicles = document.querySelector("#vehicles");
+
+    cardPeople.addEventListener("click", () => {
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems2());
+    });
+    cardLocation.addEventListener("click", () => {
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems3());
+    });
+    cardVehicles.addEventListener("click", () => {
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems4());
+    });
   } else {
     indexHTML.appendChild(renderItems(data.films)); // Llama a la función para la página principal (o cualquier otra página)
     accessInfo();
-  
+
+    //------------------------Imprimir estdísticas-------------------------------------------
+
+    stadistics.innerHTML = computeStat(data.films);
+
     //------------------------imprimir options-------------------------------------------
     menuDirector.innerHTML = createOptions(data, "director");
     menuProducer.innerHTML = createOptions(data, "producer");
@@ -28,84 +57,97 @@ import data from "./data/ghibli/ghibli.js";
     menuRtScore.innerHTML = createOptions(data, "rt_score");
 
     //------------------------imprimir filters con select posters-------------------------------------------
+    let filterDirector;
     menuDirector.addEventListener("change", () => {
-      const filterDirector = filterData(
-        data.films,
-        "director",
-        menuDirector.value
-      );
+      filterDirector = filterData(data.films, "director", menuDirector.value);
       indexHTML.innerHTML = "";
       indexHTML.appendChild(renderItems(filterDirector));
+      stadistics.innerHTML = computeStat(filterDirector);
+      accessInfo();
+      filterAndRenderData();
+    });
+
+    let filterProducer;
+    menuProducer.addEventListener("change", () => {
+      filterProducer = filterData(data.films, "producer", menuProducer.value);
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems(filterProducer));
+      stadistics.innerHTML = computeStat(filterProducer);
+      accessInfo();
+      filterAndRenderData();
+    });
+
+    let filterDate;
+    menuDate.addEventListener("change", () => {
+      filterDate = filterData(data.films, "release_date", menuDate.value);
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems(filterDate));
+      stadistics.innerHTML = computeStat(filterDate);
+      accessInfo();
+      filterAndRenderData();
+    });
+
+    let filterRtScore;
+    menuRtScore.addEventListener("change", () => {
+      filterRtScore = filterData(data.films, "rt_score", menuRtScore.value);
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems(filterRtScore));
+      stadistics.innerHTML = computeStat(filterRtScore);
+      accessInfo();
+      filterAndRenderData();
+    });
+
+    //------------------------Botón limpiar-------------------------------------------
+
+    cleanButton.addEventListener("click", () => {
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems(data.films));
+      stadistics.innerHTML = computeStat(data.films);
+      menuDirector.innerHTML = createOptions(data, "director");
+      menuProducer.innerHTML = createOptions(data, "producer");
+      menuDate.innerHTML = createOptions(data, "release_date");
+      menuRtScore.innerHTML = createOptions(data, "rt_score");
+      alphabeticOrder.selectedIndex = 0;
+      filterDirector = "";
+      filterProducer = "";
+      filterDate = "";
+      filterRtScore = "";
+      orderData = "";
       accessInfo();
     });
-  
-  menuProducer.addEventListener("change", () => {
-    const filterProducer = filterData(
-      data.films,
-      "producer",
-      menuProducer.value
-    );
-    indexHTML.innerHTML = "";
-    indexHTML.appendChild(renderItems(filterProducer));
-    accessInfo();
-  });
-  menuDate.addEventListener("change", () => {
-    const filterDate = filterData(data.films, "release_date", menuDate.value);
-    indexHTML.innerHTML = "";
-    indexHTML.appendChild(renderItems(filterDate));
-    accessInfo();
-  });
-  menuRtScore.addEventListener("change", () => {
-    const filterRtScore = filterData(data.films, "rt_score", menuRtScore.value);
-    indexHTML.innerHTML = "";
-    indexHTML.appendChild(renderItems(filterRtScore));
-    accessInfo();
-  });
-
-  //------------------------Botón limpiar-------------------------------------------
-  
-  cleanButton.addEventListener("click", () => {
-    indexHTML.innerHTML = "";
-    ascendent.checked=false;
-    descendent.checked=false;
-    indexHTML.appendChild(renderItems(data.films));
-     menuDirector.innerHTML = createOptions(data, "director");
-     menuProducer.innerHTML = createOptions(data, "producer");
-     menuDate.innerHTML = createOptions(data, "release_date");
-    menuRtScore.innerHTML = createOptions(data, "rt_score");
-    accessInfo();
+    //------------------------imprimir ascendente/descendente-------------------------------------------
     
-  });
- //------------------------imprimir ascendente/descendente-------------------------------------------
- ascendent.addEventListener("change", () => {
-  if (ascendent.checked) {
-    const ascendentData = sortData(data.films, "title", "asc");
-    indexHTML.innerHTML = "";
-    indexHTML.appendChild(renderItems(ascendentData));
-    accessInfo();
+    let orderData;
+    alphabeticOrder.addEventListener("change", () => {
+      filterAndRenderData();
+    });
+
+    //------------------------función filtros y ordenado junto-------------------------------------------
+    const filterAndRenderData= () => {
+      let dataToSort = null;
+      if (filterDirector) {
+        dataToSort = filterDirector;
+      } else if (filterProducer) {
+        dataToSort = filterProducer;
+      } else if (filterDate) {
+        dataToSort = filterDate;
+      } else if (filterRtScore) {
+        dataToSort = filterRtScore;
+      } else {
+        dataToSort = data.films;
+      }
+      orderData = sortData(dataToSort, "title", alphabeticOrder.value);
+      indexHTML.innerHTML = "";
+      indexHTML.appendChild(renderItems(orderData));
+      stadistics.innerHTML = computeStat(orderData);
+      accessInfo();
+    }
   }
-});
-
-descendent.addEventListener("change", () => {
-  if (descendent.checked) {
-    const descendentData = sortData(data.films, "title", "desc");
-    indexHTML.innerHTML = "";
-    indexHTML.appendChild(renderItems(descendentData));
-    accessInfo();
-  }
-});
-}
-
-//------------------------Imprimir estdísticas-------------------------------------------
-
-  //indexHTML.innerHTML=computeStat(data.films)
-  //console.log(computeStat(data.films));
-
 
   //------------------------imprimir hoja HTML info-------------------------------------------
 
   function accessInfo() {
-        const masInfo = document.querySelectorAll(".info");
+    const masInfo = document.querySelectorAll(".info");
     //console.log(masInfo, "se renderiza");
     let arrInfo = [];
     masInfo.forEach((eventClick) => {
@@ -121,3 +163,4 @@ descendent.addEventListener("change", () => {
       });
     });
   }
+});
