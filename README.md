@@ -156,8 +156,8 @@ Los usuarios pueden filtrar la información según sus intereses e ir más a fon
 
 ## 3. Diseño de la Interfaz de Usuario
 * Prototipos de baja fidelidad
-    https://ramatis12.githubusercontent.com/ramatis12/DEV011-data-lovers/blob/main/src/images/PrototipoTarjetas.jpg
-    https://ramatis12.githubusercontent.com/ramatis12/DEV011-data-lovers/blob/main/src/images/PrototipoWeb.jpg
+    https://github.com/ramatis12/DEV011-data-lovers/blob/main/src/images/PrototipoTarjetas.jpg
+    https://github.com/ramatis12/DEV011-data-lovers/blob/main/src/images/PrototipoWeb.jpg
     
 
 * Prototipo de alta fidelidad
