@@ -5,7 +5,7 @@ export const renderItems = (data) => {
 
   const ul = document.createElement("ul");
   ul.id = "container";
- 
+
   //identificacmos los datos de las peliculas
   data.forEach((movie) => {
     titlesHTML += `
@@ -50,20 +50,21 @@ export const createOptions = (data, option) => {
   return optionsNull + options;
 };
 //------------------------Crear description segunda hoja-------------------------------------------
-export const description = () =>{
-  const infoComplete = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
- 
-  const infoDescription = 
-     `<div class="movieDescription">
+export const description = () => {
+  const infoComplete = JSON.parse(
+    localStorage.getItem("movieInfoLocalStorage")
+  );
+
+  const infoDescription = `<div class="movieDescription">
        <img id="poster" src=${infoComplete.poster} alt="${infoComplete.title} Poster"/>
         <div id="infoMovie">
           <p>${infoComplete.description}</p><br><br>
           <button id="people">PEOPLE </button> <button id="location">LOCATION </button> <button id="vehicles">VEHICLES </button>
           </div>
       </div>`;
-     //console.log(infoDescription);
-     return infoDescription;
-}
+  //console.log(infoDescription);
+  return infoDescription;
+};
 
 export const renderItems2 = () => {
   const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
@@ -72,10 +73,9 @@ export const renderItems2 = () => {
   let peopleHTML = "";
   const arrPeople = info.people;
 
-const description =``;
-
   const ul2 = document.createElement("ul");
   ul2.id = "container2";
+
   //console.log(arrPeople);
   arrPeople.forEach((people) => {
     peopleHTML += `
@@ -106,7 +106,9 @@ const description =``;
 };
 
 export const renderItems3 = () => {
-  const infoLocation = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
+  const infoLocation = JSON.parse(
+    localStorage.getItem("movieInfoLocalStorage")
+  );
   //console.log(info);
   //identificacmos los datos de las peliculas
   let locationsHTML = "";
@@ -128,7 +130,9 @@ export const renderItems3 = () => {
 };
 
 export const renderItems4 = () => {
-  const infoVehicles = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
+  const infoVehicles = JSON.parse(
+    localStorage.getItem("movieInfoLocalStorage")
+  );
   //console.log(info);
   //identificacmos los datos de las peliculas
   let vehiclesHTML = "";
