@@ -17,7 +17,7 @@
         <li class="menuPrincipal">Filters
           <ul>
             <li>
-              <label for="director">Director: <select name="director" id="director"></select></label>
+              <label for="director">Director: <select data-testid="select-filter" name="director" id="director"></select></label>
             </li>
             <li>
               <label for="producer">Producer: <select name="producer" id="producer"></select></label>
@@ -33,10 +33,12 @@
         <li class="menuPrincipal2">|Order by title 
           <ul>
             <li>
-              <label for="ascendent">a-z<input type="radio" id="ascendent" value="asc" name="sort-order" /></label>
-            </li>
-            <li>
-              <label for="descendent">z-a<input type="radio" id="descendent" value="desc" name="sort-order" /></label>
+              <label for="alphabetic-order"></label>
+              <select data-testid="select-sort" itemprop="sort-order" name="sort-order" id="alphabetic-order">
+              <option value="" disabled selected> select</option>
+              <option value="asc">A-Z</option>
+              <option value="desc">Z-A</option>
+            </select>
             </li>
           </ul>
         </li>

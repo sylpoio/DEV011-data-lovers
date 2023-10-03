@@ -9,8 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const menuDate = document.querySelector("#release_date");
   const menuRtScore = document.querySelector("#rt_score");
   const currentPageURL = window.location.href;
-  const ascendent = document.querySelector("#ascendent");
-  const descendent = document.querySelector("#descendent");
+  const alphabeticOrder = document.querySelector("#alphabetic-order");
   const cleanButton = document.querySelector("#button-clear");
   const stadistics = document.querySelector("#stadistics");
 
@@ -40,8 +39,7 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterDirector));
       stadistics.innerHTML = computeStat(filterDirector);
       accessInfo();
-      ascendent.checked = false;
-      descendent.checked = false;
+      filterAndRenderData();
     });
 
     let filterProducer;
@@ -51,8 +49,7 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterProducer));
       stadistics.innerHTML = computeStat(filterProducer);
       accessInfo();
-      ascendent.checked = false;
-      descendent.checked = false;
+      filterAndRenderData();
     });
 
     let filterDate;
@@ -62,8 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterDate));
       stadistics.innerHTML = computeStat(filterDate);
       accessInfo();
-      ascendent.checked = false;
-      descendent.checked = false;
+      filterAndRenderData();
     });
 
     let filterRtScore;
@@ -73,73 +69,56 @@ window.addEventListener("DOMContentLoaded", () => {
       indexHTML.appendChild(renderItems(filterRtScore));
       stadistics.innerHTML = computeStat(filterRtScore);
       accessInfo();
-      ascendent.checked = false;
-      descendent.checked = false;
+      filterAndRenderData();
     });
 
     //------------------------Botón limpiar-------------------------------------------
 
     cleanButton.addEventListener("click", () => {
       indexHTML.innerHTML = "";
-      ascendent.checked = false;
-      descendent.checked = false;
       indexHTML.appendChild(renderItems(data.films));
       stadistics.innerHTML = computeStat(data.films);
       menuDirector.innerHTML = createOptions(data, "director");
       menuProducer.innerHTML = createOptions(data, "producer");
       menuDate.innerHTML = createOptions(data, "release_date");
       menuRtScore.innerHTML = createOptions(data, "rt_score");
-      filterDirector = "";
-      filterProducer = "";
+      alphabeticOrder.selectedIndex=0;
+      filterDirector="";
+      filterProducer="";
       filterDate = "";
       filterRtScore = "";
+      orderData="";
       accessInfo();
     });
     //------------------------imprimir ascendente/descendente-------------------------------------------
-    ascendent.addEventListener("change", () => {
-      if (ascendent.checked) {
-        let dataToSort = null;
-        if (filterDirector) {
-          dataToSort = filterDirector;
-        } else if (filterProducer) {
-          dataToSort = filterProducer;
-        } else if (filterDate) {
-          dataToSort = filterDate;
-        } else if (filterRtScore) {
-          dataToSort = filterRtScore;
-        } else {
-          dataToSort = data.films;
-        }
-        const ascendentData = sortData(dataToSort, "title", "asc");
-        indexHTML.innerHTML = "";
-        indexHTML.appendChild(renderItems(ascendentData));
-        accessInfo();
-        
-      }
-    });
+    let orderData;
+    alphabeticOrder.addEventListener("change", () => {
+       filterAndRenderData();
+      });
 
-    descendent.addEventListener("change", () => {
-      if (descendent.checked) {
-        let dataToSort = null;
-        if (filterDirector) {
-          dataToSort = filterDirector;
-        } else if (filterProducer) {
-          dataToSort = filterProducer;
-        } else if (filterDate) {
-          dataToSort = filterDate;
-        } else if (filterRtScore) {
-          dataToSort = filterRtScore;
-        } else {
-          dataToSort = data.films;
-        }
-        const descendentData = sortData(dataToSort, "title", "desc");
-        indexHTML.innerHTML = "";
-        indexHTML.appendChild(renderItems(descendentData));
-        accessInfo();
-        
-      }
-    });
+  //------------------------función filtros y ordenado junto-------------------------------------------
+  function filterAndRenderData() {
+    let dataToSort = null;
+     if (filterDirector) {
+      dataToSort = filterDirector;
+    } else if (filterProducer) {
+      dataToSort = filterProducer;
+    } else if (filterDate) {
+      dataToSort = filterDate;
+    } else if (filterRtScore) {
+      dataToSort = filterRtScore;
+    } else {
+      dataToSort = data.films;
+    }
+    orderData = sortData(dataToSort, "title", alphabeticOrder.value);
+    indexHTML.innerHTML = "";
+    indexHTML.appendChild(renderItems(orderData));
+    stadistics.innerHTML = computeStat(orderData);
+    accessInfo();
   }
+
+
+    }
 
   //------------------------imprimir hoja HTML info-------------------------------------------
 
