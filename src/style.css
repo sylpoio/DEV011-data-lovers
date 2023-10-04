@@ -28,7 +28,11 @@ footer {
   padding: 10px;
   height: 3vh;
 }
-
+.instructions{
+  color: #1a3adc;
+  text-align: center;
+  font-size: 2vh;
+}
 /*+++++++++++++++++++++++++++++++++ estilo para las tarejtas front +++++++++++++++++++++++++ */
 #root {
   width: 100%;
