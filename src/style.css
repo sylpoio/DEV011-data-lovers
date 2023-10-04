@@ -53,7 +53,7 @@ footer {
 .overlay {
   width: 100%;
   height: 100%;
-  font-size: 0.2em;
+  font-size: 0.1em;
 }
 /*++++++++++++++++++++ imagenes principales de las tarejtas +++++++++++++++ */
 img {
@@ -73,13 +73,13 @@ img {
   top: 0%;
 }
 
-.back p {
+.overlay p {
   font-family: "std";
-  font-size: 20px;
+  font-size: 2.3vh;
   text-align: left;
 }
-.back h2 {
-  font-size: 40px;
+.overlay h2 {
+  font-size: 3vh;
   font-family: "std";
 }
 

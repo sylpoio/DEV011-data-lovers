@@ -14,14 +14,12 @@ export const renderItems = (data) => {
         <img itemprop="poster" src=${movie.poster} alt="${movie.title} Poster"/>
       </div>
       <div class="overlay" >  
-      <div class="back">
         <h2 itemprop="title">${movie.title}</h2>
         <p itemprop="director">Director: ${movie.director}</p> 
         <p itemprop="producer">Producer: ${movie.producer}</p>  
         <p itemprop="release_date">Release date: ${movie.release_date}</p> 
         <p itemprop="rt_score">Rating score: ${movie.rt_score}</p>
-        <p class="info" id=${movie.id}> >>Click here for more info<< </p>
-      </div> 
+        <p class="info" id=${movie.id}> >>Click here for more info<< </p> 
   </div>  
     </li> `;
   });
