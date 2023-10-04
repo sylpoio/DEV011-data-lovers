@@ -157,10 +157,13 @@ Los usuarios pueden filtrar la información según sus intereses e ir más a fon
 ## 3. Diseño de la Interfaz de Usuario
 * Prototipos de baja fidelidad
     * Prototipo tarjetas
+
         ![prototipo de tarjetas](src/images/ProtipoTarjetas.png)
-    * Prototipo sitio web
-        ![prototipo web](src/images/PrototipoWeb.png)
     
+    * Prototipo sitio web
+
+        ![prototipo web](src/images/PrototipoWeb.png)
+
 * Prototipo de alta fidelidad
     [Prototipo de alta fidelidad en Figma](https://www.figma.com/file/bZIv7OtI8FI1I7Gj0nJ31y/Studio-Ghibli?type=whiteboard&node-id=0-1&t=1QKWkoXXPV8jUBr2-0)
 
