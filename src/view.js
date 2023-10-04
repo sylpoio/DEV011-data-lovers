@@ -52,7 +52,7 @@ export const createOptions = (data, option) => {
 //------------------------Crear description segunda hoja-------------------------------------------
 export const description = () =>{
   const infoComplete = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
- 
+
   const infoDescription = 
      `<div class="movieDescription">
        <img id="poster" src=${infoComplete.poster} alt="${infoComplete.title} Poster"/>
@@ -61,9 +61,9 @@ export const description = () =>{
           <button id="people">PEOPLE </button> <button id="location">LOCATION </button> <button id="vehicles">VEHICLES </button>
           </div>
       </div>`;
-     //console.log(infoDescription);
-     return infoDescription;
-}
+  //console.log(infoDescription);
+  return infoDescription;
+};
 
 export const renderItems2 = () => {
   const info = JSON.parse(localStorage.getItem("movieInfoLocalStorage"));
@@ -71,8 +71,6 @@ export const renderItems2 = () => {
   //identificacmos los datos de las peliculas
   let peopleHTML = "";
   const arrPeople = info.people;
-
-const description =``;
 
   const ul2 = document.createElement("ul");
   ul2.id = "container2";
