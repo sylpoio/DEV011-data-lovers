@@ -159,8 +159,8 @@ Los usuarios pueden filtrar la información según sus intereses e ir más a fon
   ![prototipo de tarjetas](src/images/ProtipoTarjetas.png)
   ![prototipo web](src/images/PrototipoWeb.png)
     
-* Prototipo de alta fidelidad
-    [https://www.figma.com/file/bZIv7OtI8FI1I7Gj0nJ31y/Studio-Ghibli?type=whiteboard&node-id=0-1&t=1QKWkoXXPV8jUBr2-0]
+* [Prototipo de alta fidelidad]
+    (https://www.figma.com/file/bZIv7OtI8FI1I7Gj0nJ31y/Studio-Ghibli?type=whiteboard&node-id=0-1&t=1QKWkoXXPV8jUBr2-0)
 
 ## 4. Testeos de usabilidad
 * Diseño 
