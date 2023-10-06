@@ -108,7 +108,7 @@ window.addEventListener("DOMContentLoaded", () => {
       filterProducer = "";
       filterDate = "";
       filterRtScore = "";
-      orderData = "";
+ 
       accessInfo();
     });
     //------------------------imprimir ascendente/descendente-------------------------------------------
